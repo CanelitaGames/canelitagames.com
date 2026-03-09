@@ -19,6 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      PUBLIC_ADS_TXT_LINES: ${{ vars.PUBLIC_ADS_TXT_LINES }}
+      PUBLIC_APP_ADS_TXT_LINES: ${{ vars.PUBLIC_APP_ADS_TXT_LINES }}
       PUBLIC_GOOGLE_ADSENSE_CLIENT: ${{ vars.PUBLIC_GOOGLE_ADSENSE_CLIENT }}
       PUBLIC_GOOGLE_ADSENSE_SLOT_HOME_TOP: ${{ vars.PUBLIC_GOOGLE_ADSENSE_SLOT_HOME_TOP }}
     steps:

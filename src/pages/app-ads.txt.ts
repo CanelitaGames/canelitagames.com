@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = () => {
-	const customEntries = import.meta.env.PUBLIC_ADS_TXT_LINES?.trim();
+	const customEntries = import.meta.env.PUBLIC_APP_ADS_TXT_LINES?.trim();
 	const client = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
 	const publisherId = client?.replace(/^ca-pub-/, "pub-");
 
@@ -9,7 +9,7 @@ export const GET: APIRoute = () => {
 		? `${customEntries}\n`
 		: publisherId
 			? `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0\n`
-			: "# Add PUBLIC_ADS_TXT_LINES or PUBLIC_GOOGLE_ADSENSE_CLIENT in your environment to publish your ads.txt entry.\n";
+			: "# Add PUBLIC_APP_ADS_TXT_LINES in your environment to publish your app-ads.txt entry.\n";
 
 	return new Response(body, {
 		headers: {
