@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Canelita Games Web
 
-## Getting Started
+Web estática de Canelita Games hecha con Astro.
 
-First, run the development server:
+## Desarrollo
 
-```bash
+Desde la raíz del proyecto:
+
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build de producción:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Despliegue en GitHub Pages
 
-## Learn More
+El repositorio ya incluye el workflow de GitHub Actions en `.github/workflows/deploy.yml`.
 
-To learn more about Next.js, take a look at the following resources:
+Para publicar:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Sube este proyecto a un repositorio de GitHub.
+2. En GitHub, entra en `Settings > Pages`.
+3. En `Build and deployment`, selecciona `GitHub Actions`.
+4. Haz push a `main` y GitHub publicará automáticamente el contenido de `dist/`.
+5. Configura el dominio personalizado `canelitagames.com` en GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dominio personalizado
 
-## Deploy on Vercel
+El archivo `public/CNAME` ya está configurado con:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+canelitagames.com
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Después hay que apuntar el DNS del dominio desde OVH a GitHub Pages.
+
+## SEO y monetización
+
+El proyecto incluye:
+
+1. Sitemap automático con `@astrojs/sitemap`.
+2. `robots.txt` generado desde Astro.
+3. Metadatos Open Graph y Twitter.
+4. JSON-LD para organización y catálogo de juegos.
+5. Integración preparada para Google AdSense.
+
+Variables opcionales para anuncios:
+
+```text
+PUBLIC_GOOGLE_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
+PUBLIC_GOOGLE_ADSENSE_SLOT_HOME_TOP=1234567890
+```
+
+Nota: para una web debes usar Google AdSense, no AdMob. AdMob es para apps móviles.

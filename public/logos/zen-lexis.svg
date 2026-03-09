@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <rect x="34" y="70" width="70" height="70" rx="20" fill="#F3DE80"/>
+  <rect x="92" y="95" width="70" height="70" rx="20" fill="#D7F6FF"/>
+  <rect x="150" y="70" width="70" height="70" rx="20" fill="#FFF6DD"/>
+  <text x="59" y="116" fill="#20395A" font-family="Arial, sans-serif" font-size="34" font-weight="900">Z</text>
+  <text x="118" y="141" fill="#20395A" font-family="Arial, sans-serif" font-size="34" font-weight="900">E</text>
+  <text x="175" y="116" fill="#20395A" font-family="Arial, sans-serif" font-size="34" font-weight="900">N</text>
+  <text x="62" y="204" fill="#EAF8FF" font-family="Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="4">LEXIS</text>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="18" x2="236" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#163C6C"/>
+      <stop offset="0.48" stop-color="#3275B8"/>
+      <stop offset="1" stop-color="#5ED0C0"/>
+    </linearGradient>
+  </defs>
+</svg>

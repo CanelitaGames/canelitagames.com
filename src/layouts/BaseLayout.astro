@@ -1,0 +1,81 @@
+---
+type StructuredData = Record<string, unknown> | Array<Record<string, unknown>>;
+
+interface Props {
+	title: string;
+	description: string;
+	pathname?: string;
+	ogImage?: string;
+	noindex?: boolean;
+	structuredData?: StructuredData;
+}
+
+const {
+	title,
+	description,
+	pathname = "/",
+	ogImage = "/logos/canelita-games-current.png",
+	noindex = false,
+	structuredData,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://canelitagames.com");
+const canonical = new URL(pathname, siteUrl);
+const socialImage = new URL(ogImage, siteUrl);
+const robots = noindex
+	? "noindex, nofollow"
+	: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const structuredDataItems = Array.isArray(structuredData)
+	? structuredData
+	: structuredData
+		? [structuredData]
+		: [];
+const adsenseClient = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
+		<meta name="theme-color" content="#171030" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Canelita Games" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical.toString()} />
+		<meta property="og:image" content={socialImage.toString()} />
+		<meta property="og:image:alt" content="Logo y marca de Canelita Games" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImage.toString()} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonical.toString()} />
+		<title>{title}</title>
+		{
+			adsenseClient && (
+				<script
+					async
+					src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+					crossorigin="anonymous"
+				></script>
+			)
+		}
+		{
+			structuredDataItems.map((item) => (
+				<script type="application/ld+json" set:html={JSON.stringify(item)}></script>
+			))
+		}
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

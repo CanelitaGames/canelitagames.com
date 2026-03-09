@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <circle cx="128" cy="138" r="74" fill="url(#apple)"/>
+  <ellipse cx="108" cy="114" rx="18" ry="20" fill="#FFF7DF"/>
+  <rect x="123" y="45" width="16" height="40" rx="8" transform="rotate(-14 123 45)" fill="#5F8E28"/>
+  <path d="M146 56C162 41 182 40 198 50C185 65 168 73 149 74L146 56Z" fill="#8FD448"/>
+  <circle cx="182" cy="174" r="20" fill="#FFE266" fill-opacity="0.16"/>
+  <circle cx="78" cy="182" r="12" fill="#FFF7DF" fill-opacity="0.18"/>
+  <defs>
+    <linearGradient id="bg" x1="20" y1="18" x2="238" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4B1678"/>
+      <stop offset="1" stop-color="#FF6B1A"/>
+    </linearGradient>
+    <radialGradient id="apple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(95 92) rotate(52.5348) scale(81.6588)">
+      <stop offset="0.05" stop-color="#FFE49F"/>
+      <stop offset="0.4" stop-color="#FFB131"/>
+      <stop offset="1" stop-color="#D84C1D"/>
+    </radialGradient>
+  </defs>
+</svg>

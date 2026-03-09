@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import DataDeletionContent from "../components/DataDeletionContent.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout
+	title="Solicitud de eliminación de datos | Canelita Games"
+	description="Cómo solicitar la eliminación de datos de usuario en Canelita Games."
+	pathname="/solicitud-de-eliminacion-de-datos"
+>
+	<div class="page-shell">
+		<div class="noise"></div>
+		<main class="legal-page">
+			<div class="container">
+				<article class="legal-card">
+					<a class="back-link" href="/">Volver a inicio</a>
+					<DataDeletionContent />
+				</article>
+			</div>
+		</main>
+
+		<Footer />
+	</div>
+</BaseLayout>

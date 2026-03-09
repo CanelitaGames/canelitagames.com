@@ -1,0 +1,139 @@
+---
+import AdSenseUnit from "../components/AdSenseUnit.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import StoreBadge from "../components/StoreBadge.astro";
+import { games } from "../data/games";
+import "../styles/global.css";
+
+const structuredData = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		name: "Canelita Games",
+		url: "https://canelitagames.com",
+		logo: "https://canelitagames.com/logos/canelita-games-current.png",
+		sameAs: [
+			"https://play.google.com/store/apps/dev?id=6148040112617060945&hl=es_419",
+		],
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		name: "Canelita Games",
+		url: "https://canelitagames.com",
+		description: "Web oficial de Canelita Games con enlaces a sus juegos móviles.",
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "Juegos de Canelita Games",
+		itemListElement: games.map((game, index) => ({
+			"@type": "SoftwareApplication",
+			position: index + 1,
+			name: game.title,
+			applicationCategory: "GameApplication",
+			operatingSystem: game.stores.ios ? "Android, iOS" : "Android",
+			description: game.description,
+			image: `https://canelitagames.com${game.logo}`,
+			url: game.stores.android ?? game.stores.ios ?? "https://canelitagames.com/#juegos",
+			offers: {
+				"@type": "Offer",
+				price: "0",
+				priceCurrency: "USD",
+				availability: game.available
+					? "https://schema.org/InStock"
+					: "https://schema.org/PreOrder",
+			},
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title="Canelita Games | Juegos móviles indie en Android y iPhone"
+	description="Descubre los juegos móviles de Canelita Games: arcade de reflejos, puzzle zen y juegos de palabras con enlaces directos a Google Play y App Store."
+	ogImage="/logos/canelita-games-current.png"
+	structuredData={structuredData}
+>
+	<div class="page-shell">
+		<div class="noise"></div>
+
+		<header class="catalog-header">
+			<div class="container catalog-header-inner">
+				<div class="intro-copy">
+					<span class="hero-badge">Canelita Games</span>
+					<h1 class="brand-title">
+						<span>CANELITA</span>
+						<span>GAMES</span>
+					</h1>
+					<p>
+						Juegos móviles para partidas rápidas, momentos zen y retos de palabras.
+						Descubre nuestros títulos y juega en Google Play o App Store.
+					</p>
+				</div>
+				<div class="intro-actions">
+					<a class="button button-primary" href="#juegos">Explorar catálogo</a>
+					<a class="button button-secondary" href="https://play.google.com/store/apps/dev?id=6148040112617060945&hl=es_419" target="_blank" rel="noreferrer">Perfil de Google Play</a>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<AdSenseUnit slot={import.meta.env.PUBLIC_GOOGLE_ADSENSE_SLOT_HOME_TOP} className="container top-ad" />
+
+			<section class="section" id="juegos">
+				<div class="container">
+					<div class="section-heading">
+						<span class="section-kicker">Nuestros juegos</span>
+						<h2>Lo que ya puedes jugar, y lo próximo que viene.</h2>
+						<p>
+							Explora cada juego, mira de qué va y entra directamente en su tienda
+							correspondiente.
+						</p>
+					</div>
+
+					<div class="catalog-grid">
+						{
+							games.map((game) => (
+								<article class="catalog-card" data-accent={game.accent}>
+									<div class="catalog-card-media">
+										<img src={game.logo} alt={`Logo de ${game.title}`} loading="lazy" />
+									</div>
+									<div class="catalog-card-body">
+										<div class="game-header">
+											<span class="pill">{game.status}</span>
+										</div>
+										<h3>{game.title}</h3>
+										<p class="game-tagline">{game.tagline}</p>
+										<p>{game.description}</p>
+										<ul class="game-highlights" aria-label={`Puntos destacados de ${game.title}`}>
+											{game.highlights.map((item) => <li>{item}</li>)}
+										</ul>
+										<div class="store-links">
+											<StoreBadge
+												platform="android"
+												label={game.stores.android ? "Google Play" : "Google Play próximamente"}
+												href={game.stores.android}
+												disabled={!game.stores.android}
+											/>
+											<StoreBadge
+												platform="ios"
+												label={game.stores.ios ? "App Store" : "App Store próximamente"}
+												href={game.stores.ios}
+												disabled={!game.stores.ios}
+											/>
+										</div>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+	</div>
+</BaseLayout>
+

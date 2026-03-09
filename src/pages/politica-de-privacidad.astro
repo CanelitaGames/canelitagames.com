@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import PrivacyPolicyContent from "../components/PrivacyPolicyContent.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout
+	title="Política de privacidad | Canelita Games"
+	description="Política de privacidad de Canelita Games para sus juegos móviles y servicios relacionados."
+	pathname="/politica-de-privacidad"
+>
+	<div class="page-shell">
+		<div class="noise"></div>
+		<main class="legal-page">
+			<div class="container">
+				<article class="legal-card">
+					<a class="back-link" href="/">Volver a inicio</a>
+					<PrivacyPolicyContent />
+				</article>
+			</div>
+		</main>
+		<Footer />
+	</div>
+</BaseLayout>
