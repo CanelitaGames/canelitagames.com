@@ -1,0 +1,40 @@
+---
+import { defaultLocale, localeOptions } from "../i18n/config";
+import { defaultSharedContent } from "../i18n/content";
+---
+
+<div class="language-switcher-shell">
+	<div class="language-switcher">
+		<label class="sr-only" for="language-select">{defaultSharedContent.languageLabel}</label>
+		<select id="language-select" class="language-select" data-language-select aria-label={defaultSharedContent.languageLabel}>
+			{
+				localeOptions.map((option) => (
+					<option value={option.code} selected={option.code === defaultLocale}>{option.label}</option>
+				))
+			}
+		</select>
+	</div>
+</div>
+
+<script is:inline>
+	(() => {
+		const switcher = document.currentScript?.previousElementSibling;
+		const select = switcher?.querySelector("[data-language-select]");
+
+		if (!(select instanceof HTMLSelectElement)) {
+			return;
+		}
+
+		const syncValue = (event) => {
+			const nextLocale = event?.detail?.locale ?? document.documentElement.dataset.locale ?? "es";
+			select.value = nextLocale;
+		};
+
+		select.addEventListener("change", () => {
+			window.__CANELITA_SET_LOCALE__?.(select.value, true);
+		});
+
+		window.addEventListener("canelita:localechange", syncValue);
+		syncValue();
+	})();
+</script>

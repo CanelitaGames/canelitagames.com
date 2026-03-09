@@ -1,9 +1,40 @@
+---
+import { defaultLocale } from "../i18n/config";
+import { sharedContent } from "../i18n/content";
+
+const footerCopy = sharedContent[defaultLocale];
+---
+
 <footer class="site-footer">
 	<div class="container footer-inner">
 		<p class="footer-brand">Canelita Games</p>
-		<nav class="footer-nav" aria-label="Legal">
-			<a href="/politica-de-privacidad">Política de privacidad</a>
-			<a href="/solicitud-de-eliminacion-de-datos">Solicitud de eliminación de datos</a>
+		<nav class="footer-nav" aria-label={footerCopy.footerNavAria} data-footer-nav>
+			<a href="/politica-de-privacidad" data-footer-privacy>{footerCopy.privacyLink}</a>
+			<a href="/solicitud-de-eliminacion-de-datos" data-footer-deletion>{footerCopy.dataDeletionLink}</a>
 		</nav>
 	</div>
 </footer>
+
+<script is:inline define:vars={{ sharedContent }}>
+	(() => {
+		const translations = sharedContent;
+		const root = document.currentScript?.previousElementSibling;
+		const nav = root?.querySelector("[data-footer-nav]");
+		const privacy = root?.querySelector("[data-footer-privacy]");
+		const deletion = root?.querySelector("[data-footer-deletion]");
+
+		if (!(nav instanceof HTMLElement) || !(privacy instanceof HTMLAnchorElement) || !(deletion instanceof HTMLAnchorElement)) {
+			return;
+		}
+
+		const render = (locale) => {
+			const copy = translations[locale] ?? translations.es;
+			nav.setAttribute("aria-label", copy.footerNavAria);
+			privacy.textContent = copy.privacyLink;
+			deletion.textContent = copy.dataDeletionLink;
+		};
+
+		window.addEventListener("canelita:localechange", (event) => render(event.detail.locale));
+		render(document.documentElement.dataset.locale ?? "es");
+	})();
+</script>

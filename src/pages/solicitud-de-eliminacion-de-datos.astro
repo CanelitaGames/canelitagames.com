@@ -2,25 +2,62 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer.astro";
 import DataDeletionContent from "../components/DataDeletionContent.astro";
+import { buildMetaMap, dataDeletionPageContent, sharedContent } from "../i18n/content";
+import { defaultLocale } from "../i18n/config";
 import "../styles/global.css";
+
+const locale = defaultLocale;
+const pageCopy = dataDeletionPageContent[locale];
+const metaMap = buildMetaMap(dataDeletionPageContent);
+const runtime = {
+	defaultLocale,
+	content: dataDeletionPageContent,
+	sharedContent,
+};
 ---
 
 <BaseLayout
-	title="Solicitud de eliminación de datos | Canelita Games"
-	description="Cómo solicitar la eliminación de datos de usuario en Canelita Games."
+	title={pageCopy.meta.title}
+	description={pageCopy.meta.description}
 	pathname="/solicitud-de-eliminacion-de-datos"
+	localizedMeta={metaMap}
 >
 	<div class="page-shell">
 		<div class="noise"></div>
 		<main class="legal-page">
 			<div class="container">
 				<article class="legal-card">
-					<a class="back-link" href="/">Volver a inicio</a>
-					<DataDeletionContent />
+					<a class="back-link" href="/" data-back-link>{sharedContent[locale].backToHome}</a>
+					<DataDeletionContent html={pageCopy.body} />
 				</article>
 			</div>
 		</main>
 
 		<Footer />
 	</div>
+	<script type="application/json" id="deletion-i18n" set:html={JSON.stringify(runtime)}></script>
+	<script is:inline>
+		(() => {
+			const payload = document.getElementById("deletion-i18n");
+
+			if (!payload?.textContent) {
+				return;
+			}
+
+			const runtime = JSON.parse(payload.textContent);
+			const contentNode = document.querySelector("[data-legal-content]");
+			const backLink = document.querySelector("[data-back-link]");
+
+			const render = (locale) => {
+				const copy = runtime.content[locale] ?? runtime.content[runtime.defaultLocale];
+				const shared = runtime.sharedContent[locale] ?? runtime.sharedContent[runtime.defaultLocale];
+
+				if (contentNode) contentNode.innerHTML = copy.body;
+				if (backLink) backLink.textContent = shared.backToHome;
+			};
+
+			window.addEventListener("canelita:localechange", (event) => render(event.detail.locale));
+			render(document.documentElement.dataset.locale ?? runtime.defaultLocale);
+		})();
+	</script>
 </BaseLayout>

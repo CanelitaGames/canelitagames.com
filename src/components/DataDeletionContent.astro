@@ -1,18 +1,9 @@
-<span class="section-kicker">Legal</span>
-<h1>Solicitud de eliminación de datos de usuario</h1>
-<p>
-	En Canelita Games apostamos por tu privacidad y nos comprometemos a darte el
-	control sobre tus datos personales. Si quieres solicitar la eliminación de los
-	datos asociados a nuestras aplicaciones, sigue estos pasos.
-</p>
-<ol>
-	<li>Envía un email a canelitagames@gmail.com.</li>
-	<li>Especifica en el asunto: ELIMINAR DATOS.</li>
-	<li>Incluye en el cuerpo del email tu nombre completo.</li>
-	<li>Indica el correo electrónico asociado a tu cuenta, si aplica.</li>
-	<li>Añade cualquier información extra que nos ayude a identificarte.</li>
-</ol>
-<p>
-	Procederemos a la eliminación de dichos datos lo antes posible y nos pondremos
-	en contacto contigo para confirmarlo.
-</p>
+---
+interface Props {
+	html: string;
+}
+
+const { html } = Astro.props;
+---
+
+<div data-legal-content set:html={html}></div>

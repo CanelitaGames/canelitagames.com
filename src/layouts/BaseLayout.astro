@@ -1,4 +1,12 @@
 ---
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import {
+	defaultLocale,
+	ogLocaleByLocale,
+	supportedLocales,
+	type Locale,
+} from "../i18n/config";
+
 type StructuredData = Record<string, unknown> | Array<Record<string, unknown>>;
 
 interface Props {
@@ -8,6 +16,7 @@ interface Props {
 	ogImage?: string;
 	noindex?: boolean;
 	structuredData?: StructuredData;
+	localizedMeta?: Partial<Record<Locale, { title: string; description: string }>>;
 }
 
 const {
@@ -17,6 +26,7 @@ const {
 	ogImage = "/logos/canelita-games-current.png",
 	noindex = false,
 	structuredData,
+	localizedMeta = {},
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL("https://canelitagames.com");
@@ -31,10 +41,16 @@ const structuredDataItems = Array.isArray(structuredData)
 		? [structuredData]
 		: [];
 const adsenseClient = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
+const localeBootConfig = {
+	defaultLocale,
+	supportedLocales,
+	localizedMeta,
+	ogLocaleByLocale,
+};
 ---
 
 <!doctype html>
-<html lang="es">
+	<html lang={defaultLocale} data-locale={defaultLocale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +58,7 @@ const adsenseClient = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
 		<meta name="description" content={description} />
 		<meta name="robots" content={robots} />
 		<meta name="theme-color" content="#171030" />
-		<meta property="og:locale" content="es_ES" />
+		<meta property="og:locale" content={ogLocaleByLocale[defaultLocale]} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Canelita Games" />
 		<meta property="og:title" content={title} />
@@ -60,6 +76,94 @@ const adsenseClient = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonical.toString()} />
 		<title>{title}</title>
+		<script is:inline define:vars={{ localeBootConfig }}>
+			(() => {
+				const config = localeBootConfig;
+				const findLocale = (value) => {
+					if (!value || typeof value !== "string") {
+						return null;
+					}
+
+					const normalized = value.toLowerCase();
+					return (
+						config.supportedLocales.find((locale) => locale === normalized || normalized.startsWith(`${locale}-`)) ?? null
+					);
+				};
+
+				const updateMeta = (locale) => {
+					const meta = config.localizedMeta?.[locale];
+
+					if (!meta) {
+						return;
+					}
+
+					document.title = meta.title;
+
+					const description = document.querySelector('meta[name="description"]');
+					const ogTitle = document.querySelector('meta[property="og:title"]');
+					const ogDescription = document.querySelector('meta[property="og:description"]');
+					const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+					const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+					const ogLocale = document.querySelector('meta[property="og:locale"]');
+
+					if (description) description.setAttribute("content", meta.description);
+					if (ogTitle) ogTitle.setAttribute("content", meta.title);
+					if (ogDescription) ogDescription.setAttribute("content", meta.description);
+					if (twitterTitle) twitterTitle.setAttribute("content", meta.title);
+					if (twitterDescription) twitterDescription.setAttribute("content", meta.description);
+					if (ogLocale && config.ogLocaleByLocale?.[locale]) {
+						ogLocale.setAttribute("content", config.ogLocaleByLocale[locale]);
+					}
+				};
+
+				const detectBrowserLocale = () => {
+					const browserLocales = Array.isArray(navigator.languages) && navigator.languages.length
+						? navigator.languages
+						: [navigator.language];
+
+					for (const locale of browserLocales) {
+						const match = findLocale(locale);
+
+						if (match) {
+							return match;
+						}
+					}
+
+					return config.defaultLocale;
+				};
+
+				const setLocale = (nextLocale, persist = true) => {
+					const locale = findLocale(nextLocale) ?? config.defaultLocale;
+					document.documentElement.lang = locale;
+					document.documentElement.dataset.locale = locale;
+					window.__CANELITA_LOCALE__ = locale;
+
+					if (persist) {
+						try {
+							localStorage.setItem("canelita-locale", locale);
+						} catch {
+							// Ignore storage failures.
+						}
+					}
+
+					updateMeta(locale);
+					window.dispatchEvent(new CustomEvent("canelita:localechange", { detail: { locale } }));
+					return locale;
+				};
+
+				window.__CANELITA_SET_LOCALE__ = setLocale;
+
+				let initialLocale = null;
+
+				try {
+					initialLocale = findLocale(localStorage.getItem("canelita-locale"));
+				} catch {
+					initialLocale = null;
+				}
+
+				setLocale(initialLocale ?? detectBrowserLocale(), false);
+			})();
+		</script>
 		{
 			adsenseClient && (
 				<script
@@ -76,6 +180,7 @@ const adsenseClient = import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT;
 		}
 	</head>
 	<body>
+		<LanguageSwitcher />
 		<slot />
 	</body>
 </html>
