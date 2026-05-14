@@ -4,20 +4,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer.astro";
 import StoreBadge from "../components/StoreBadge.astro";
 import { games } from "../data/games";
-import { defaultLocale } from "../i18n/config";
+import { defaultLocale, supportedLocales } from "../i18n/config";
 import { buildMetaMap, homeContent } from "../i18n/content";
 import "../styles/global.css";
 
 const locale = defaultLocale;
 const homeCopy = homeContent[locale];
 const homeMeta = buildMetaMap(homeContent);
+const publishedGamesCount = games.filter((game) => game.available).length;
+const appStoreGamesCount = games.filter((game) => game.stores.ios).length;
+const supportedLocaleCount = supportedLocales.length;
 
 const structuredGames = games.map((game, index) => ({
 	"@type": "SoftwareApplication",
 	position: index + 1,
 	name: game.title,
 	applicationCategory: "GameApplication",
-	operatingSystem: game.stores.ios ? "Android, iOS" : "Android",
+	operatingSystem:
+		[
+			game.stores.android ? "Android" : null,
+			game.stores.ios ? "iOS" : null,
+		].filter(Boolean).join(", ") || "Android, iOS",
 	description: game.translations[locale].description,
 	image: `https://canelitagames.com${game.logo}`,
 	url: game.stores.android ?? game.stores.ios ?? "https://canelitagames.com/#juegos",
@@ -74,20 +81,56 @@ const homeRuntime = {
 	<div class="page-shell">
 		<div class="noise"></div>
 
-		<header class="catalog-header">
-			<div class="container catalog-header-inner">
+		<header class="hero-shell">
+			<div class="container hero-grid">
 				<div class="intro-copy">
 					<span class="hero-badge" data-home-badge>{homeCopy.hero.badge}</span>
+					<p class="hero-kicker" data-home-kicker>{homeCopy.hero.kicker}</p>
 					<h1 class="brand-title">
 						<span>CANELITA</span>
 						<span>GAMES</span>
 					</h1>
-					<p data-home-description>{homeCopy.hero.description}</p>
+					<p class="hero-description" data-home-description>{homeCopy.hero.description}</p>
+					<dl class="hero-stats">
+						<div class="hero-stat">
+							<dd>{publishedGamesCount}</dd>
+							<dt data-home-stat-games>{homeCopy.hero.stats.games}</dt>
+						</div>
+						<div class="hero-stat">
+							<dd>{appStoreGamesCount}</dd>
+							<dt data-home-stat-app-store>{homeCopy.hero.stats.appStore}</dt>
+						</div>
+						<div class="hero-stat">
+							<dd>{supportedLocaleCount}</dd>
+							<dt data-home-stat-languages>{homeCopy.hero.stats.languages}</dt>
+						</div>
+					</dl>
+
+					<div class="intro-actions">
+						<a class="button button-primary" href="#juegos" data-home-primary-cta>{homeCopy.hero.primaryCta}</a>
+						<a class="button button-secondary" href="https://play.google.com/store/apps/dev?id=6148040112617060945&hl=es_419" target="_blank" rel="noreferrer" data-home-secondary-cta>{homeCopy.hero.secondaryCta}</a>
+					</div>
 				</div>
-				<div class="intro-actions">
-					<a class="button button-primary" href="#juegos" data-home-primary-cta>{homeCopy.hero.primaryCta}</a>
-					<a class="button button-secondary" href="https://play.google.com/store/apps/dev?id=6148040112617060945&hl=es_419" target="_blank" rel="noreferrer" data-home-secondary-cta>{homeCopy.hero.secondaryCta}</a>
-				</div>
+				<aside class="hero-panel">
+					<span class="section-kicker" data-home-panel-kicker>{homeCopy.hero.panelKicker}</span>
+					<h2 data-home-panel-title>{homeCopy.hero.panelTitle}</h2>
+					<p data-home-panel-description>{homeCopy.hero.panelDescription}</p>
+					<div class="hero-game-strip">
+						{
+							games.map((game) => (
+								<article class="hero-game-card" data-accent={game.accent} data-hero-game-id={game.id}>
+									<div class="hero-game-media">
+										<img src={game.logo} alt={`Logo ${game.title}`} loading="lazy" />
+									</div>
+									<div class="hero-game-copy">
+										<strong>{game.title}</strong>
+										<span data-hero-game-status>{game.translations[locale].status}</span>
+									</div>
+								</article>
+							))
+						}
+					</div>
+				</aside>
 			</div>
 		</header>
 
@@ -104,10 +147,13 @@ const homeRuntime = {
 
 					<div class="catalog-grid">
 						{
-							games.map((game) => (
+							games.map((game, index) => (
 								<article class="catalog-card" data-accent={game.accent} data-game-id={game.id}>
-									<div class="catalog-card-media">
-										<img src={game.logo} alt={`Logo de ${game.title}`} loading="lazy" />
+									<div class="catalog-card-rail">
+										<div class="catalog-card-media">
+											<img src={game.logo} alt={`Logo ${game.title}`} loading="lazy" />
+										</div>
+										<span class="catalog-card-index">{String(index + 1).padStart(2, "0")}</span>
 									</div>
 									<div class="catalog-card-body">
 										<div class="game-header">
@@ -120,22 +166,20 @@ const homeRuntime = {
 											{game.translations[locale].highlights.map((item) => <li>{item}</li>)}
 										</ul>
 										<div class="store-links">
-											<div data-store-android>
+											{game.stores.android && <div data-store-android>
 												<StoreBadge
 													platform="android"
-													label={game.stores.android ? "Google Play" : homeCopy.labels.googlePlaySoon}
+													label="Google Play"
 													href={game.stores.android}
-													disabled={!game.stores.android}
 												/>
-											</div>
-											<div data-store-ios>
+											</div>}
+											{game.stores.ios && <div data-store-ios>
 												<StoreBadge
 													platform="ios"
-													label={game.stores.ios ? "App Store" : homeCopy.labels.appStoreSoon}
+													label="App Store"
 													href={game.stores.ios}
-													disabled={!game.stores.ios}
 												/>
-											</div>
+											</div>}
 										</div>
 									</div>
 								</article>
@@ -162,20 +206,48 @@ const homeRuntime = {
 			const render = (locale) => {
 				const copy = runtime.homeContent[locale] ?? runtime.homeContent[runtime.defaultLocale];
 				const badge = document.querySelector("[data-home-badge]");
+				const kicker = document.querySelector("[data-home-kicker]");
 				const description = document.querySelector("[data-home-description]");
 				const primaryCta = document.querySelector("[data-home-primary-cta]");
 				const secondaryCta = document.querySelector("[data-home-secondary-cta]");
+				const panelKicker = document.querySelector("[data-home-panel-kicker]");
+				const panelTitle = document.querySelector("[data-home-panel-title]");
+				const panelDescription = document.querySelector("[data-home-panel-description]");
+				const statGames = document.querySelector("[data-home-stat-games]");
+				const statAppStore = document.querySelector("[data-home-stat-app-store]");
+				const statLanguages = document.querySelector("[data-home-stat-languages]");
 				const sectionKicker = document.querySelector("[data-home-section-kicker]");
 				const sectionTitle = document.querySelector("[data-home-section-title]");
 				const sectionDescription = document.querySelector("[data-home-section-description]");
 
 				if (badge) badge.textContent = copy.hero.badge;
+				if (kicker) kicker.textContent = copy.hero.kicker;
 				if (description) description.textContent = copy.hero.description;
 				if (primaryCta) primaryCta.textContent = copy.hero.primaryCta;
 				if (secondaryCta) secondaryCta.textContent = copy.hero.secondaryCta;
+				if (panelKicker) panelKicker.textContent = copy.hero.panelKicker;
+				if (panelTitle) panelTitle.textContent = copy.hero.panelTitle;
+				if (panelDescription) panelDescription.textContent = copy.hero.panelDescription;
+				if (statGames) statGames.textContent = copy.hero.stats.games;
+				if (statAppStore) statAppStore.textContent = copy.hero.stats.appStore;
+				if (statLanguages) statLanguages.textContent = copy.hero.stats.languages;
 				if (sectionKicker) sectionKicker.textContent = copy.section.kicker;
 				if (sectionTitle) sectionTitle.textContent = copy.section.title;
 				if (sectionDescription) sectionDescription.textContent = copy.section.description;
+
+				document.querySelectorAll("[data-hero-game-id]").forEach((card) => {
+					const gameId = card.getAttribute("data-hero-game-id");
+					const game = runtime.games.find((entry) => entry.id === gameId);
+
+					if (!game) {
+						return;
+					}
+
+					const gameCopy = game.translations[locale] ?? game.translations[runtime.defaultLocale];
+					const status = card.querySelector("[data-hero-game-status]");
+
+					if (status) status.textContent = gameCopy.status;
+				});
 
 				document.querySelectorAll("[data-game-id]").forEach((card) => {
 					const gameId = card.getAttribute("data-game-id");

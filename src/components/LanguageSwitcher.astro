@@ -1,10 +1,15 @@
 ---
 import { defaultLocale, localeOptions } from "../i18n/config";
-import { defaultSharedContent } from "../i18n/content";
+import { defaultSharedContent, sharedContent } from "../i18n/content";
 ---
 
 <div class="language-switcher-shell">
-	<div class="language-switcher">
+	<div class="site-controls">
+		<button class="theme-toggle" type="button" data-theme-toggle aria-label={defaultSharedContent.themeToggleLabel} title={defaultSharedContent.themeToggleLabel}>
+			<span class="theme-toggle-icon" aria-hidden="true">
+				<span></span>
+			</span>
+		</button>
 		<label class="sr-only" for="language-select">{defaultSharedContent.languageLabel}</label>
 		<select id="language-select" class="language-select" data-language-select aria-label={defaultSharedContent.languageLabel}>
 			{
@@ -16,25 +21,44 @@ import { defaultSharedContent } from "../i18n/content";
 	</div>
 </div>
 
-<script is:inline>
+<script is:inline define:vars={{ sharedContent }}>
 	(() => {
+		const translations = sharedContent;
 		const switcher = document.currentScript?.previousElementSibling;
 		const select = switcher?.querySelector("[data-language-select]");
+		const themeToggle = switcher?.querySelector("[data-theme-toggle]");
 
-		if (!(select instanceof HTMLSelectElement)) {
+		if (!(select instanceof HTMLSelectElement) || !(themeToggle instanceof HTMLButtonElement)) {
 			return;
 		}
 
 		const syncValue = (event) => {
 			const nextLocale = event?.detail?.locale ?? document.documentElement.dataset.locale ?? "es";
+			const copy = translations[nextLocale] ?? translations.es;
 			select.value = nextLocale;
+			select.setAttribute("aria-label", copy.languageLabel);
+			themeToggle.setAttribute("aria-label", copy.themeToggleLabel);
+			themeToggle.setAttribute("title", copy.themeToggleLabel);
+		};
+
+		const syncTheme = (event) => {
+			const theme = event?.detail?.theme ?? document.documentElement.dataset.theme ?? "light";
+			themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+			themeToggle.dataset.themeState = theme;
 		};
 
 		select.addEventListener("change", () => {
 			window.__CANELITA_SET_LOCALE__?.(select.value, true);
 		});
 
+		themeToggle.addEventListener("click", () => {
+			const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+			window.__CANELITA_SET_THEME__?.(currentTheme === "dark" ? "light" : "dark", true);
+		});
+
 		window.addEventListener("canelita:localechange", syncValue);
+		window.addEventListener("canelita:themechange", syncTheme);
 		syncValue();
+		syncTheme();
 	})();
 </script>

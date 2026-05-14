@@ -24,6 +24,115 @@ export interface Game {
 
 export const games: Game[] = [
 	{
+		id: "prisma-flow",
+		title: "Prisma Flow",
+		logo: "/logos/prisma-flow.png",
+		accent: "prism",
+		available: true,
+		stores: {
+			ios: "https://apps.apple.com/us/app/prisma-flow-color-puzzle/id6760553596",
+		},
+		translations: {
+			es: {
+				status: "Ya disponible",
+				tagline: "Repara caminos de color en puzzles cortos y relajantes.",
+				description:
+					"Intercambia piezas y gira nodos hasta que el color llegue limpio al final. Sin prisas, con puzzle diario y ayudas si te atascas.",
+				highlights: ["Puzzle diario", "Partidas rápidas", "Sin presión"],
+			},
+			en: {
+				status: "Out now",
+				tagline: "Fix color paths in short, relaxing puzzles.",
+				description:
+					"Swap tiles and rotate nodes until the color reaches the end cleanly. No rush, with a daily puzzle and help when you get stuck.",
+				highlights: ["Daily puzzle", "Quick sessions", "No pressure"],
+			},
+			it: {
+				status: "Disponibile ora",
+				tagline: "Ripara percorsi di colore in puzzle brevi e rilassanti.",
+				description:
+					"Scambia tessere e ruota nodi finché il colore arriva pulito alla fine. Senza fretta, con puzzle giornaliero e aiuti quando servono.",
+				highlights: ["Puzzle giornaliero", "Partite rapide", "Senza pressione"],
+			},
+			pt: {
+				status: "Já disponível",
+				tagline: "Repara caminhos de cor em puzzles curtos e relaxantes.",
+				description:
+					"Troca peças e roda nós até a cor chegar limpa ao fim. Sem pressa, com puzzle diário e ajuda quando ficares preso.",
+				highlights: ["Puzzle diário", "Partidas rápidas", "Sem pressão"],
+			},
+			ca: {
+				status: "Ja disponible",
+				tagline: "Repara camins de color en puzles curts i relaxants.",
+				description:
+					"Intercanvia peces i gira nodes fins que el color arribi net al final. Sense presses, amb puzle diari i ajuda quan t'encallis.",
+				highlights: ["Puzle diari", "Partides ràpides", "Sense pressió"],
+			},
+			fr: {
+				status: "Déjà disponible",
+				tagline: "Réparez des chemins de couleur dans des puzzles courts et relaxants.",
+				description:
+					"Échangez des tuiles et tournez les nœuds jusqu'à ce que la couleur arrive proprement au bout. Sans stress, avec puzzle quotidien et aide si besoin.",
+				highlights: ["Puzzle quotidien", "Parties rapides", "Sans pression"],
+			},
+		},
+	},
+	{
+		id: "zen-lexis",
+		title: "Zen Lexis",
+		logo: "/logos/zen-lexis.svg",
+		accent: "cyan",
+		available: true,
+		stores: {
+			android: "https://play.google.com/store/apps/details?id=com.canelitagames.zenlexis&hl=es_419",
+			ios: "https://apps.apple.com/us/app/zen-lexis-word-puzzle/id6759875370",
+		},
+		translations: {
+			es: {
+				status: "Ya disponible",
+				tagline: "Ordena letras y descubre palabras en 6 idiomas.",
+				description:
+					"Juega sin cronómetro, mejora vocabulario y cambia de idioma cuando quieras. Incluye campaña, modo infinito, pistas y logros.",
+				highlights: ["6 idiomas", "Sin cronómetro", "Modo infinito"],
+			},
+			en: {
+				status: "Out now",
+				tagline: "Unscramble letters and find words in 6 languages.",
+				description:
+					"Play without a timer, build vocabulary and switch languages whenever you want. Includes campaign, endless mode, hints and achievements.",
+				highlights: ["6 languages", "No timer", "Endless mode"],
+			},
+			it: {
+				status: "Disponibile ora",
+				tagline: "Riordina lettere e trova parole in 6 lingue.",
+				description:
+					"Gioca senza timer, arricchisci il vocabolario e cambia lingua quando vuoi. Include campagna, modalità infinita, aiuti e obiettivi.",
+				highlights: ["6 lingue", "Senza timer", "Modalità infinita"],
+			},
+			pt: {
+				status: "Já disponível",
+				tagline: "Ordena letras e descobre palavras em 6 idiomas.",
+				description:
+					"Joga sem cronómetro, melhora vocabulário e muda de idioma quando quiseres. Inclui campanha, modo infinito, dicas e conquistas.",
+				highlights: ["6 idiomas", "Sem cronómetro", "Modo infinito"],
+			},
+			ca: {
+				status: "Ja disponible",
+				tagline: "Ordena lletres i descobreix paraules en 6 idiomes.",
+				description:
+					"Juga sense cronòmetre, millora vocabulari i canvia d'idioma quan vulguis. Inclou campanya, mode infinit, pistes i assoliments.",
+				highlights: ["6 idiomes", "Sense cronòmetre", "Mode infinit"],
+			},
+			fr: {
+				status: "Déjà disponible",
+				tagline: "Réorganisez les lettres et trouvez des mots en 6 langues.",
+				description:
+					"Jouez sans minuteur, enrichissez votre vocabulaire et changez de langue quand vous voulez. Campagne, mode infini, indices et succès inclus.",
+				highlights: ["6 langues", "Sans minuteur", "Mode infini"],
+			},
+		},
+	},
+	{
 		id: "touch-the-apple",
 		title: "Touch the Apple",
 		logo: "/logos/touch-the-apple.svg",
@@ -35,45 +144,45 @@ export const games: Game[] = [
 		translations: {
 			es: {
 				status: "Ya disponible",
-				tagline: "Agilidad visual, tensión rápida y duelos 1v1 para picarse.",
+				tagline: "Encuentra la manzana antes de que se acabe el tiempo.",
 				description:
-					"Encuentra la manzana entre montones de fruta, gana segundos extra y compite online o sin conexión en partidas cortas con mucho ritmo.",
-				highlights: ["Modo infinito offline", "Duelos 1v1 online", "Clasificaciones y skins"],
+					"Partidas rápidas para probar reflejos: busca la manzana entre frutas, suma segundos y compite online o sin conexión.",
+				highlights: ["Duelos 1v1", "Modo infinito", "Skins y rankings"],
 			},
 			en: {
 				status: "Out now",
-				tagline: "Sharp eyes, fast tension and spicy 1v1 duels.",
+				tagline: "Find the apple before time runs out.",
 				description:
-					"Spot the apple hidden among piles of fruit, earn extra seconds and compete online or offline in short, frantic matches.",
-				highlights: ["Offline endless mode", "Online 1v1 duels", "Leaderboards and skins"],
+					"Quick matches for sharp reflexes: spot the apple in the fruit pile, earn seconds and compete online or offline.",
+				highlights: ["1v1 duels", "Endless mode", "Skins and rankings"],
 			},
 			it: {
 				status: "Disponibile ora",
-				tagline: "Agilità visiva, tensione rapida e duelli 1v1 per sfidarsi davvero.",
+				tagline: "Trova la mela prima che finisca il tempo.",
 				description:
-					"Trova la mela tra mucchi di frutta, guadagna secondi extra e sfida altri giocatori online o offline in partite brevi e intense.",
-				highlights: ["Modalità infinita offline", "Duelli 1v1 online", "Classifiche e skin"],
+					"Partite rapide per mettere alla prova i riflessi: cerca la mela tra la frutta, guadagna secondi e competi online o offline.",
+				highlights: ["Duelli 1v1", "Modalità infinita", "Skin e classifiche"],
 			},
 			pt: {
 				status: "Já disponível",
-				tagline: "Agilidade visual, tensão rápida e duelos 1v1 para entrar em competição.",
+				tagline: "Encontra a maçã antes que o tempo acabe.",
 				description:
-					"Encontra a maçã no meio de montes de fruta, ganha segundos extra e compete online ou offline em partidas curtas e intensas.",
-				highlights: ["Modo infinito offline", "Duelos 1v1 online", "Classificações e skins"],
+					"Partidas rápidas para testar reflexos: encontra a maçã entre frutas, ganha segundos e compete online ou offline.",
+				highlights: ["Duelos 1v1", "Modo infinito", "Skins e rankings"],
 			},
 			ca: {
 				status: "Ja disponible",
-				tagline: "Agilitat visual, tensió ràpida i duels 1v1 per picar-se de debò.",
+				tagline: "Troba la poma abans que s'acabi el temps.",
 				description:
-					"Troba la poma entre piles de fruita, guanya segons extra i competeix en línia o sense connexió en partides curtes i amb molt ritme.",
-				highlights: ["Mode infinit offline", "Duels 1v1 online", "Classificacions i skins"],
+					"Partides ràpides per posar a prova els reflexos: busca la poma entre fruites, suma segons i competeix online o sense connexió.",
+				highlights: ["Duels 1v1", "Mode infinit", "Skins i rànquings"],
 			},
 			fr: {
 				status: "Déjà disponible",
-				tagline: "Agilité visuelle, tension rapide et duels 1v1 pour se challenger.",
+				tagline: "Trouvez la pomme avant la fin du chrono.",
 				description:
-					"Repérez la pomme cachée parmi des tas de fruits, gagnez des secondes supplémentaires et affrontez d'autres joueurs en ligne ou hors ligne dans des parties courtes et nerveuses.",
-				highlights: ["Mode infini hors ligne", "Duels 1v1 en ligne", "Classements et skins"],
+					"Des parties rapides pour tester vos réflexes : repérez la pomme parmi les fruits, gagnez des secondes et jouez en ligne ou hors ligne.",
+				highlights: ["Duels 1v1", "Mode infini", "Skins et classements"],
 			},
 		},
 	},
@@ -90,99 +199,45 @@ export const games: Game[] = [
 		translations: {
 			es: {
 				status: "Ya disponible",
-				tagline: "Un puzzle zen de fusionar orbes, ordenar el caos y entrar en flow.",
+				tagline: "Fusiona orbes y busca una partida cada vez más alta.",
 				description:
-					"Mezcla lógica tipo 2048 con física dinámica, estética cósmica y un ritmo relajado pensado para jugar sin prisas y con buen tacto.",
-				highlights: ["Física dinámica", "Modo infinito", "Audio inmersivo"],
+					"Un puzzle relajado con física suave, combos y modo infinito. Fácil de entender, difícil de soltar.",
+				highlights: ["Física suave", "Modo infinito", "Audio relajante"],
 			},
 			en: {
 				status: "Out now",
-				tagline: "A zen orb-merging puzzle to tame chaos and settle into flow.",
+				tagline: "Merge orbs and chase a higher run every time.",
 				description:
-					"It blends 2048-style logic with dynamic physics, cosmic visuals and a calm pace designed for thoughtful, tactile play.",
-				highlights: ["Dynamic physics", "Endless mode", "Immersive audio"],
+					"A relaxed puzzle with soft physics, combos and endless mode. Easy to learn, hard to put down.",
+				highlights: ["Soft physics", "Endless mode", "Relaxing audio"],
 			},
 			it: {
 				status: "Disponibile ora",
-				tagline: "Un puzzle zen di sfere da fondere, ordinare e vivere in pieno flow.",
+				tagline: "Fondi sfere e punta a una partita sempre più alta.",
 				description:
-					"Unisce logica in stile 2048, fisica dinamica, estetica cosmica e un ritmo rilassato pensato per giocare senza fretta.",
-				highlights: ["Fisica dinamica", "Modalità infinita", "Audio immersivo"],
+					"Un puzzle rilassato con fisica morbida, combo e modalità infinita. Facile da capire, difficile da lasciare.",
+				highlights: ["Fisica morbida", "Modalità infinita", "Audio rilassante"],
 			},
 			pt: {
 				status: "Já disponível",
-				tagline: "Um puzzle zen de fundir orbes, ordenar o caos e entrar em flow.",
+				tagline: "Funde orbes e tenta chegar mais longe a cada partida.",
 				description:
-					"Mistura lógica ao estilo 2048 com física dinâmica, estética cósmica e um ritmo relaxado pensado para jogar sem pressa.",
-				highlights: ["Física dinâmica", "Modo infinito", "Áudio imersivo"],
+					"Um puzzle relaxado com física suave, combos e modo infinito. Fácil de perceber, difícil de largar.",
+				highlights: ["Física suave", "Modo infinito", "Áudio relaxante"],
 			},
 			ca: {
 				status: "Ja disponible",
-				tagline: "Un puzle zen de fusionar orbes, ordenar el caos i entrar en flow.",
+				tagline: "Fusiona orbes i busca una partida cada cop més alta.",
 				description:
-					"Barreja lògica estil 2048 amb física dinàmica, estètica còsmica i un ritme relaxat pensat per jugar sense presses.",
-				highlights: ["Física dinàmica", "Mode infinit", "Àudio immersiu"],
+					"Un puzle relaxat amb física suau, combos i mode infinit. Fàcil d'entendre, difícil de deixar.",
+				highlights: ["Física suau", "Mode infinit", "Àudio relaxant"],
 			},
 			fr: {
 				status: "Déjà disponible",
-				tagline: "Un puzzle zen où fusionner des orbes, ordonner le chaos et entrer dans le flow.",
+				tagline: "Fusionnez des orbes et visez une partie toujours plus haute.",
 				description:
-					"Il mêle une logique façon 2048 à une physique dynamique, une esthétique cosmique et un rythme apaisé pensé pour jouer sans stress.",
-				highlights: ["Physique dynamique", "Mode infini", "Audio immersif"],
-			},
-		},
-	},
-	{
-		id: "zen-lexis",
-		title: "Zen Lexis",
-		logo: "/logos/zen-lexis.svg",
-		accent: "cyan",
-		available: true,
-		stores: {
-			android: "https://play.google.com/store/apps/details?id=com.canelitagames.zenlexis&hl=es_419",
-		},
-		translations: {
-			es: {
-				status: "Ya disponible",
-				tagline: "Resolver palabras, pensar rápido y jugar en 6 idiomas.",
-				description:
-					"Un nuevo juego de letras en el que tendrás que ordenar caracteres, reconocer patrones y resolver palabras con soporte multidioma.",
-				highlights: ["6 idiomas", "Partidas mentales cortas", "Disponible en Google Play"],
-			},
-			en: {
-				status: "Out now",
-				tagline: "Solve words, think fast and play in 6 languages.",
-				description:
-					"A fresh word game where you sort characters, spot patterns and solve terms with multilingual support built in.",
-				highlights: ["6 languages", "Short brainy sessions", "Available on Google Play"],
-			},
-			it: {
-				status: "Disponibile ora",
-				tagline: "Risolvi parole, pensa in fretta e gioca in 6 lingue.",
-				description:
-					"Un nuovo gioco di lettere in cui dovrai ordinare caratteri, riconoscere schemi e risolvere parole con supporto multilingue.",
-				highlights: ["6 lingue", "Sessioni mentali brevi", "Disponibile su Google Play"],
-			},
-			pt: {
-				status: "Já disponível",
-				tagline: "Resolve palavras, pensa rápido e joga em 6 idiomas.",
-				description:
-					"Um novo jogo de letras em que tens de ordenar caracteres, reconhecer padrões e resolver palavras com suporte multilingue.",
-				highlights: ["6 idiomas", "Partidas mentais curtas", "Disponível no Google Play"],
-			},
-			ca: {
-				status: "Ja disponible",
-				tagline: "Resol paraules, pensa ràpid i juga en 6 idiomes.",
-				description:
-					"Un nou joc de lletres on hauràs d'ordenar caràcters, reconèixer patrons i resoldre paraules amb suport multilingüe.",
-				highlights: ["6 idiomes", "Partides mentals curtes", "Disponible a Google Play"],
-			},
-			fr: {
-				status: "Déjà disponible",
-				tagline: "Résolvez des mots, réfléchissez vite et jouez en 6 langues.",
-				description:
-					"Un nouveau jeu de lettres où vous devez trier des caractères, repérer des motifs et résoudre des mots avec prise en charge multilingue.",
-				highlights: ["6 langues", "Courtes sessions cérébrales", "Disponible sur Google Play"],
+					"Un puzzle détendu avec physique douce, combos et mode infini. Simple à comprendre, difficile à lâcher.",
+				highlights: ["Physique douce", "Mode infini", "Audio relaxant"],
 			},
 		},
 	},

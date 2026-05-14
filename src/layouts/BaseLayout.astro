@@ -47,17 +47,22 @@ const localeBootConfig = {
 	localizedMeta,
 	ogLocaleByLocale,
 };
+const themeBootConfig = {
+	storageKey: "canelita-theme",
+	lightThemeColor: "#f7f1e8",
+	darkThemeColor: "#111318",
+};
 ---
 
 <!doctype html>
-	<html lang={defaultLocale} data-locale={defaultLocale}>
+	<html lang={defaultLocale} data-locale={defaultLocale} data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="robots" content={robots} />
-		<meta name="theme-color" content="#171030" />
+		<meta name="theme-color" content="#f7f1e8" />
 		<meta property="og:locale" content={ogLocaleByLocale[defaultLocale]} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Canelita Games" />
@@ -72,10 +77,52 @@ const localeBootConfig = {
 		<meta name="twitter:image" content={socialImage.toString()} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonical.toString()} />
 		<title>{title}</title>
+		<script is:inline define:vars={{ themeBootConfig }}>
+			(() => {
+				const config = themeBootConfig;
+				const isTheme = (value) => value === "light" || value === "dark";
+				const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+				const setTheme = (nextTheme, persist = true) => {
+					const theme = isTheme(nextTheme) ? nextTheme : "light";
+					document.documentElement.dataset.theme = theme;
+					document.documentElement.style.colorScheme = theme;
+					window.__CANELITA_THEME__ = theme;
+
+					if (metaThemeColor) {
+						metaThemeColor.setAttribute("content", theme === "dark" ? config.darkThemeColor : config.lightThemeColor);
+					}
+
+					if (persist) {
+						try {
+							localStorage.setItem(config.storageKey, theme);
+						} catch {
+							// Ignore storage failures.
+						}
+					}
+
+					window.dispatchEvent(new CustomEvent("canelita:themechange", { detail: { theme } }));
+					return theme;
+				};
+
+				window.__CANELITA_SET_THEME__ = setTheme;
+
+				let storedTheme = null;
+
+				try {
+					storedTheme = localStorage.getItem(config.storageKey);
+				} catch {
+					storedTheme = null;
+				}
+
+				const systemTheme = window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+				setTheme(isTheme(storedTheme) ? storedTheme : systemTheme, false);
+			})();
+		</script>
 		<script is:inline define:vars={{ localeBootConfig }}>
 			(() => {
 				const config = localeBootConfig;

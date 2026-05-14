@@ -9,9 +9,18 @@ export interface HomeContent {
 	meta: MetaContent;
 	hero: {
 		badge: string;
+		kicker: string;
 		description: string;
 		primaryCta: string;
 		secondaryCta: string;
+		panelKicker: string;
+		panelTitle: string;
+		panelDescription: string;
+		stats: {
+			games: string;
+			appStore: string;
+			languages: string;
+		};
 	};
 	section: {
 		kicker: string;
@@ -35,6 +44,7 @@ export interface SharedContent {
 	dataDeletionLink: string;
 	backToHome: string;
 	languageLabel: string;
+	themeToggleLabel: string;
 }
 
 export interface LegalPageContent {
@@ -49,6 +59,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Solicitud de eliminación de datos",
 		backToHome: "Volver a inicio",
 		languageLabel: "Idioma del sitio",
+		themeToggleLabel: "Cambiar tema claro u oscuro",
 	},
 	en: {
 		footerNavAria: "Legal",
@@ -56,6 +67,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Data deletion request",
 		backToHome: "Back to home",
 		languageLabel: "Site language",
+		themeToggleLabel: "Toggle light or dark theme",
 	},
 	it: {
 		footerNavAria: "Legale",
@@ -63,6 +75,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Richiesta di cancellazione dei dati",
 		backToHome: "Torna alla home",
 		languageLabel: "Lingua del sito",
+		themeToggleLabel: "Cambia tema chiaro o scuro",
 	},
 	pt: {
 		footerNavAria: "Legal",
@@ -70,6 +83,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Pedido de eliminação de dados",
 		backToHome: "Voltar ao início",
 		languageLabel: "Idioma do site",
+		themeToggleLabel: "Alternar tema claro ou escuro",
 	},
 	ca: {
 		footerNavAria: "Legal",
@@ -77,6 +91,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Sol·licitud d'eliminació de dades",
 		backToHome: "Tornar a l'inici",
 		languageLabel: "Idioma del lloc",
+		themeToggleLabel: "Canvia el tema clar o fosc",
 	},
 	fr: {
 		footerNavAria: "Mentions légales",
@@ -84,6 +99,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		dataDeletionLink: "Demande de suppression des données",
 		backToHome: "Retour à l'accueil",
 		languageLabel: "Langue du site",
+		themeToggleLabel: "Basculer entre thème clair et sombre",
 	},
 };
 
@@ -92,20 +108,30 @@ export const homeContent: Record<Locale, HomeContent> = {
 		meta: {
 			title: "Canelita Games | Juegos móviles indie en Android y iPhone",
 			description:
-				"Descubre los juegos móviles de Canelita Games: arcade de reflejos, puzzle zen y juegos de palabras con enlaces directos a Google Play y App Store.",
+				"Explora los juegos móviles de Canelita Games: arcade de reflejos, puzzles zen, juegos de palabras y lógica cromática con enlaces directos a Google Play y App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Juegos móviles para abrir y jugar.",
 			description:
-				"Juegos móviles para partidas rápidas, momentos zen y retos de palabras. Descubre nuestros títulos y juega en Google Play o App Store.",
-			primaryCta: "Explorar catálogo",
+				"Elige un reto rápido, un puzzle tranquilo o un juego de palabras. Son gratis, se entienden en segundos y están listos en Google Play y App Store.",
+			primaryCta: "Ver juegos",
 			secondaryCta: "Perfil de Google Play",
+			panelKicker: "Elige tu partida",
+			panelTitle: "Cuatro juegos. Una pausa mejor.",
+			panelDescription:
+				"Toca, piensa, ordena colores o fusiona orbes. Abre tu tienda y empieza en menos de un minuto.",
+			stats: {
+				games: "juegos gratis",
+				appStore: "ya en App Store",
+				languages: "idiomas",
+			},
 		},
 		section: {
-			kicker: "Nuestros juegos",
-			title: "Lo que ya puedes jugar, y lo próximo que viene.",
+			kicker: "Juega ahora",
+			title: "Elige tu próximo juego.",
 			description:
-				"Explora cada juego, mira de qué va y entra directamente en su tienda correspondiente.",
+				"Mira el resumen, elige plataforma y entra directamente en Google Play o App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play próximamente",
@@ -113,28 +139,38 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Puntos destacados de",
 		},
 		structuredData: {
-			websiteDescription: "Web oficial de Canelita Games con enlaces a sus juegos móviles.",
-			itemListName: "Juegos de Canelita Games",
+			websiteDescription: "Sitio oficial de Canelita Games con enlaces a sus juegos arcade, zen, de palabras y lógica cromática.",
+			itemListName: "Catálogo de Canelita Games",
 		},
 	},
 	en: {
 		meta: {
 			title: "Canelita Games | Indie mobile games on Android and iPhone",
 			description:
-				"Discover Canelita Games mobile titles: reflex arcades, zen puzzles and word games with direct links to Google Play and the App Store.",
+				"Discover Canelita Games mobile titles: reflex arcades, zen puzzles, word games and chromatic logic with direct links to Google Play and the App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Mobile games you can open and play.",
 			description:
-				"Mobile games for quick sessions, zen moments and word challenges. Explore our titles and play on Google Play or the App Store.",
-			primaryCta: "Explore catalog",
+				"Pick a quick challenge, a quiet puzzle or a word game. They are free, easy to start and ready on Google Play and the App Store.",
+			primaryCta: "See games",
 			secondaryCta: "Google Play profile",
+			panelKicker: "Pick your next game",
+			panelTitle: "Four games. A better break.",
+			panelDescription:
+				"Tap, think, sort colors or merge orbs. Open your store and start in under a minute.",
+			stats: {
+				games: "free games",
+				appStore: "on App Store",
+				languages: "languages",
+			},
 		},
 		section: {
-			kicker: "Our games",
-			title: "What you can already play, and what is coming next.",
+			kicker: "Play now",
+			title: "Pick your next game.",
 			description:
-				"Explore each game, see what it is about and jump straight to its store page.",
+				"Check the quick summary, choose a platform and jump straight to Google Play or the App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play coming soon",
@@ -142,28 +178,38 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Highlights for",
 		},
 		structuredData: {
-			websiteDescription: "Official Canelita Games website with links to its mobile games.",
-			itemListName: "Canelita Games titles",
+			websiteDescription: "Official Canelita Games website with links to its arcade, zen, word and chromatic-logic mobile games.",
+			itemListName: "Canelita Games catalog",
 		},
 	},
 	it: {
 		meta: {
 			title: "Canelita Games | Giochi mobile indie su Android e iPhone",
 			description:
-				"Scopri i giochi mobile di Canelita Games: arcade di riflessi, puzzle zen e word game con link diretti a Google Play e App Store.",
+				"Scopri i giochi mobile di Canelita Games: arcade di riflessi, puzzle zen, word game e logica cromatica con link diretti a Google Play e App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Giochi mobile da aprire e giocare subito.",
 			description:
-				"Giochi mobile per partite rapide, momenti zen e sfide di parole. Scopri i nostri titoli e gioca su Google Play o App Store.",
-			primaryCta: "Esplora il catalogo",
+				"Scegli una sfida rapida, un puzzle tranquillo o un gioco di parole. Sono gratis, immediati e disponibili su Google Play e App Store.",
+			primaryCta: "Vedi i giochi",
 			secondaryCta: "Profilo Google Play",
+			panelKicker: "Scegli la prossima partita",
+			panelTitle: "Quattro giochi. Una pausa migliore.",
+			panelDescription:
+				"Tocca, pensa, ordina colori o fondi sfere. Apri lo store e inizi in meno di un minuto.",
+			stats: {
+				games: "giochi gratis",
+				appStore: "già su App Store",
+				languages: "lingue",
+			},
 		},
 		section: {
-			kicker: "I nostri giochi",
-			title: "Quello che puoi già giocare e ciò che arriverà presto.",
+			kicker: "Gioca ora",
+			title: "Scegli il prossimo gioco.",
 			description:
-				"Esplora ogni gioco, scopri di cosa tratta ed entra direttamente nel relativo store.",
+				"Leggi il riassunto, scegli la piattaforma e vai direttamente su Google Play o App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play prossimamente",
@@ -171,28 +217,38 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Punti salienti di",
 		},
 		structuredData: {
-			websiteDescription: "Sito ufficiale di Canelita Games con link ai suoi giochi mobile.",
-			itemListName: "Giochi di Canelita Games",
+			websiteDescription: "Sito ufficiale di Canelita Games con link ai suoi giochi mobile arcade, zen, di parole e logica cromatica.",
+			itemListName: "Catalogo di Canelita Games",
 		},
 	},
 	pt: {
 		meta: {
 			title: "Canelita Games | Jogos mobile indie no Android e iPhone",
 			description:
-				"Descobre os jogos mobile da Canelita Games: arcades de reflexos, puzzles zen e jogos de palavras com ligações diretas para Google Play e App Store.",
+				"Descobre os jogos mobile da Canelita Games: arcades de reflexos, puzzles zen, jogos de palavras e lógica cromática com ligações diretas para Google Play e App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Jogos mobile para abrir e jogar.",
 			description:
-				"Jogos mobile para partidas rápidas, momentos zen e desafios de palavras. Descobre os nossos títulos e joga no Google Play ou na App Store.",
-			primaryCta: "Explorar catálogo",
+				"Escolhe um desafio rápido, um puzzle calmo ou um jogo de palavras. São grátis, fáceis de começar e estão no Google Play e na App Store.",
+			primaryCta: "Ver jogos",
 			secondaryCta: "Perfil do Google Play",
+			panelKicker: "Escolhe a próxima partida",
+			panelTitle: "Quatro jogos. Uma pausa melhor.",
+			panelDescription:
+				"Toca, pensa, ordena cores ou funde orbes. Abre a loja e começa em menos de um minuto.",
+			stats: {
+				games: "jogos grátis",
+				appStore: "já na App Store",
+				languages: "idiomas",
+			},
 		},
 		section: {
-			kicker: "Os nossos jogos",
-			title: "O que já podes jogar e o que vem a seguir.",
+			kicker: "Joga agora",
+			title: "Escolhe o próximo jogo.",
 			description:
-				"Explora cada jogo, vê do que se trata e entra diretamente na respetiva loja.",
+				"Vê o resumo, escolhe a plataforma e entra diretamente no Google Play ou na App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play em breve",
@@ -200,28 +256,38 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Destaques de",
 		},
 		structuredData: {
-			websiteDescription: "Site oficial da Canelita Games com ligações para os seus jogos mobile.",
-			itemListName: "Jogos da Canelita Games",
+			websiteDescription: "Site oficial da Canelita Games com ligações para os seus jogos mobile arcade, zen, de palavras e lógica cromática.",
+			itemListName: "Catálogo da Canelita Games",
 		},
 	},
 	ca: {
 		meta: {
 			title: "Canelita Games | Jocs mòbils indie a Android i iPhone",
 			description:
-				"Descobreix els jocs mòbils de Canelita Games: arcade de reflexos, puzles zen i jocs de paraules amb enllaços directes a Google Play i App Store.",
+				"Descobreix els jocs mòbils de Canelita Games: arcade de reflexos, puzles zen, jocs de paraules i lògica cromàtica amb enllaços directes a Google Play i App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Jocs mòbils per obrir i jugar.",
 			description:
-				"Jocs mòbils per a partides ràpides, moments zen i reptes de paraules. Descobreix els nostres títols i juga a Google Play o a l'App Store.",
-			primaryCta: "Explora el catàleg",
+				"Tria un repte ràpid, un puzle tranquil o un joc de paraules. Són gratis, fàcils de començar i disponibles a Google Play i a l'App Store.",
+			primaryCta: "Veure jocs",
 			secondaryCta: "Perfil de Google Play",
+			panelKicker: "Tria la pròxima partida",
+			panelTitle: "Quatre jocs. Una pausa millor.",
+			panelDescription:
+				"Toca, pensa, ordena colors o fusiona orbes. Obre la botiga i comença en menys d'un minut.",
+			stats: {
+				games: "jocs gratis",
+				appStore: "ja a l'App Store",
+				languages: "idiomes",
+			},
 		},
 		section: {
-			kicker: "Els nostres jocs",
-			title: "El que ja pots jugar i el que vindrà després.",
+			kicker: "Juga ara",
+			title: "Tria el pròxim joc.",
 			description:
-				"Explora cada joc, mira de què va i entra directament a la seva botiga.",
+				"Mira el resum, tria plataforma i ves directament a Google Play o a l'App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play aviat",
@@ -229,28 +295,38 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Punts destacats de",
 		},
 		structuredData: {
-			websiteDescription: "Web oficial de Canelita Games amb enllaços als seus jocs mòbils.",
-			itemListName: "Jocs de Canelita Games",
+			websiteDescription: "Web oficial de Canelita Games amb enllaços als seus jocs mòbils arcade, zen, de paraules i lògica cromàtica.",
+			itemListName: "Catàleg de Canelita Games",
 		},
 	},
 	fr: {
 		meta: {
 			title: "Canelita Games | Jeux mobiles indé sur Android et iPhone",
 			description:
-				"Découvrez les jeux mobiles de Canelita Games : arcade de réflexes, puzzles zen et jeux de mots avec des liens directs vers Google Play et l'App Store.",
+				"Découvrez les jeux mobiles de Canelita Games : arcade de réflexes, puzzles zen, jeux de mots et logique chromatique avec des liens directs vers Google Play et l'App Store.",
 		},
 		hero: {
 			badge: "Canelita Games",
+			kicker: "Des jeux mobiles à lancer tout de suite.",
 			description:
-				"Des jeux mobiles pour des parties rapides, des moments zen et des défis de mots. Découvrez nos titres et jouez sur Google Play ou l'App Store.",
-			primaryCta: "Explorer le catalogue",
+				"Choisissez un défi rapide, un puzzle calme ou un jeu de mots. Ils sont gratuits, faciles à prendre en main et disponibles sur Google Play et l'App Store.",
+			primaryCta: "Voir les jeux",
 			secondaryCta: "Profil Google Play",
+			panelKicker: "Choisissez votre partie",
+			panelTitle: "Quatre jeux. Une meilleure pause.",
+			panelDescription:
+				"Touchez, réfléchissez, rangez les couleurs ou fusionnez des orbes. Ouvrez la boutique et commencez en moins d'une minute.",
+			stats: {
+				games: "jeux gratuits",
+				appStore: "déjà sur l'App Store",
+				languages: "langues",
+			},
 		},
 		section: {
-			kicker: "Nos jeux",
-			title: "Ce que vous pouvez déjà jouer, et ce qui arrive ensuite.",
+			kicker: "Jouez maintenant",
+			title: "Choisissez votre prochain jeu.",
 			description:
-				"Explorez chaque jeu, voyez de quoi il s'agit et accédez directement à sa boutique.",
+				"Lisez le résumé, choisissez la plateforme et passez directement à Google Play ou à l'App Store.",
 		},
 		labels: {
 			googlePlaySoon: "Google Play bientôt disponible",
@@ -258,8 +334,8 @@ export const homeContent: Record<Locale, HomeContent> = {
 			highlightsAria: "Points forts de",
 		},
 		structuredData: {
-			websiteDescription: "Site officiel de Canelita Games avec des liens vers ses jeux mobiles.",
-			itemListName: "Jeux Canelita Games",
+			websiteDescription: "Site officiel de Canelita Games avec des liens vers ses jeux mobiles arcade, zen, de mots et de logique chromatique.",
+			itemListName: "Catalogue Canelita Games",
 		},
 	},
 };
@@ -274,7 +350,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Legal</span>
 <h1>Política de privacidad</h1>
 <p><strong>Última actualización:</strong> 15 de febrero de 2026</p>
-<p>La presente Política de Privacidad describe cómo Canelita Games recopila, usa y protege la información de los usuarios de nuestras aplicaciones móviles, incluyendo Essence Merge, Touch the Apple y Zen Lexis.</p>
+<p>La presente Política de Privacidad describe cómo Canelita Games recopila, usa y protege la información de los usuarios de nuestras aplicaciones móviles, incluyendo Prisma Flow, Essence Merge, Touch the Apple y Zen Lexis.</p>
 <p>Al descargar, instalar o utilizar cualquiera de nuestros juegos, aceptas los términos descritos en esta política. Si no estás de acuerdo, te rogamos que no utilices nuestras aplicaciones.</p>
 <h2>1. Información que recopilamos</h2>
 <p>Nuestros juegos no requieren registro de cuenta ni solicitan directamente datos personales como nombre, correo electrónico o dirección. Sin embargo, mediante servicios de terceros integrados en nuestras aplicaciones, se puede recopilar automáticamente cierta información.</p>
@@ -344,7 +420,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Legal</span>
 <h1>Privacy Policy</h1>
 <p><strong>Last updated:</strong> February 15, 2026</p>
-<p>This Privacy Policy explains how Canelita Games collects, uses and protects information related to our mobile applications, including Essence Merge, Touch the Apple and Zen Lexis.</p>
+<p>This Privacy Policy explains how Canelita Games collects, uses and protects information related to our mobile applications, including Prisma Flow, Essence Merge, Touch the Apple and Zen Lexis.</p>
 <p>By downloading, installing or using any of our games, you agree to the terms described in this policy. If you do not agree, please do not use our applications.</p>
 <h2>1. Information we collect</h2>
 <p>Our games do not require account registration and do not directly ask for personal data such as your name, email address or postal address. However, some information may be collected automatically through third-party services integrated into our apps.</p>
@@ -414,7 +490,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Legale</span>
 <h1>Informativa sulla privacy</h1>
 <p><strong>Ultimo aggiornamento:</strong> 15 febbraio 2026</p>
-<p>La presente Informativa sulla privacy descrive come Canelita Games raccoglie, utilizza e protegge le informazioni relative alle nostre applicazioni mobili, incluse Essence Merge, Touch the Apple e Zen Lexis.</p>
+<p>La presente Informativa sulla privacy descrive come Canelita Games raccoglie, utilizza e protegge le informazioni relative alle nostre applicazioni mobili, incluse Prisma Flow, Essence Merge, Touch the Apple e Zen Lexis.</p>
 <p>Scaricando, installando o utilizzando uno dei nostri giochi, accetti i termini descritti in questa informativa. Se non sei d'accordo, ti chiediamo di non utilizzare le nostre applicazioni.</p>
 <h2>1. Informazioni raccolte</h2>
 <p>I nostri giochi non richiedono la creazione di un account e non chiedono direttamente dati personali come nome, email o indirizzo postale. Tuttavia, alcuni dati possono essere raccolti automaticamente tramite servizi di terze parti integrati nelle app.</p>
@@ -468,7 +544,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Legal</span>
 <h1>Política de privacidade</h1>
 <p><strong>Última atualização:</strong> 15 de fevereiro de 2026</p>
-<p>Esta Política de Privacidade descreve como a Canelita Games recolhe, utiliza e protege informações relacionadas com as nossas aplicações móveis, incluindo Essence Merge, Touch the Apple e Zen Lexis.</p>
+<p>Esta Política de Privacidade descreve como a Canelita Games recolhe, utiliza e protege informações relacionadas com as nossas aplicações móveis, incluindo Prisma Flow, Essence Merge, Touch the Apple e Zen Lexis.</p>
 <p>Ao descarregar, instalar ou utilizar qualquer um dos nossos jogos, aceitas os termos descritos nesta política. Se não concordares, por favor não utilizes as nossas aplicações.</p>
 <h2>1. Informações que recolhemos</h2>
 <p>Os nossos jogos não exigem registo de conta nem pedem diretamente dados pessoais como nome, email ou morada. No entanto, alguma informação pode ser recolhida automaticamente através de serviços de terceiros integrados nas aplicações.</p>
@@ -516,7 +592,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Legal</span>
 <h1>Política de privacitat</h1>
 <p><strong>Darrera actualització:</strong> 15 de febrer de 2026</p>
-<p>Aquesta Política de Privacitat descriu com Canelita Games recopila, utilitza i protegeix la informació relacionada amb les nostres aplicacions mòbils, incloses Essence Merge, Touch the Apple i Zen Lexis.</p>
+<p>Aquesta Política de Privacitat descriu com Canelita Games recopila, utilitza i protegeix la informació relacionada amb les nostres aplicacions mòbils, incloses Prisma Flow, Essence Merge, Touch the Apple i Zen Lexis.</p>
 <p>En descarregar, instal·lar o utilitzar qualsevol dels nostres jocs, acceptes els termes descrits en aquesta política. Si no hi estàs d'acord, et demanem que no utilitzis les nostres aplicacions.</p>
 <h2>1. Informació que recopilem</h2>
 <p>Els nostres jocs no requereixen registre de compte ni demanen directament dades personals com el nom, el correu electrònic o l'adreça postal. Tot i així, certa informació es pot recopilar automàticament a través de serveis de tercers integrats a les aplicacions.</p>
@@ -564,7 +640,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <span class="section-kicker">Mentions légales</span>
 <h1>Politique de confidentialité</h1>
 <p><strong>Dernière mise à jour :</strong> 15 février 2026</p>
-<p>La présente Politique de confidentialité explique comment Canelita Games collecte, utilise et protège les informations liées à nos applications mobiles, notamment Essence Merge, Touch the Apple et Zen Lexis.</p>
+<p>La présente Politique de confidentialité explique comment Canelita Games collecte, utilise et protège les informations liées à nos applications mobiles, notamment Prisma Flow, Essence Merge, Touch the Apple et Zen Lexis.</p>
 <p>En téléchargeant, installant ou utilisant l'un de nos jeux, vous acceptez les conditions décrites dans cette politique. Si vous n'êtes pas d'accord, veuillez ne pas utiliser nos applications.</p>
 <h2>1. Informations collectées</h2>
 <p>Nos jeux n'exigent pas de création de compte et ne demandent pas directement de données personnelles telles que votre nom, votre adresse e-mail ou votre adresse postale. Toutefois, certaines informations peuvent être collectées automatiquement via des services tiers intégrés dans les applications.</p>
