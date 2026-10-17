@@ -11,6 +11,7 @@ const footerCopy = sharedContent[defaultLocale];
 		<nav class="footer-nav" aria-label={footerCopy.footerNavAria} data-footer-nav>
 			<a href="/politica-de-privacidad" data-footer-privacy>{footerCopy.privacyLink}</a>
 			<a href="/solicitud-de-eliminacion-de-datos" data-footer-deletion>{footerCopy.dataDeletionLink}</a>
+			<a href="/soporte" data-footer-support>{footerCopy.supportLink}</a>
 		</nav>
 	</div>
 </footer>
@@ -22,6 +23,7 @@ const footerCopy = sharedContent[defaultLocale];
 		const nav = root?.querySelector("[data-footer-nav]");
 		const privacy = root?.querySelector("[data-footer-privacy]");
 		const deletion = root?.querySelector("[data-footer-deletion]");
+		const support = root?.querySelector("[data-footer-support]");
 
 		if (!(nav instanceof HTMLElement) || !(privacy instanceof HTMLAnchorElement) || !(deletion instanceof HTMLAnchorElement)) {
 			return;
@@ -32,6 +34,7 @@ const footerCopy = sharedContent[defaultLocale];
 			nav.setAttribute("aria-label", copy.footerNavAria);
 			privacy.textContent = copy.privacyLink;
 			deletion.textContent = copy.dataDeletionLink;
+			if (support) support.textContent = copy.supportLink;
 		};
 
 		window.addEventListener("canelita:localechange", (event) => render(event.detail.locale));

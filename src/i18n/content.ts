@@ -42,6 +42,7 @@ export interface SharedContent {
 	footerNavAria: string;
 	privacyLink: string;
 	dataDeletionLink: string;
+	supportLink: string;
 	backToHome: string;
 	languageLabel: string;
 	themeToggleLabel: string;
@@ -57,6 +58,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Legal",
 		privacyLink: "Política de privacidad",
 		dataDeletionLink: "Solicitud de eliminación de datos",
+		supportLink: "Soporte",
 		backToHome: "Volver a inicio",
 		languageLabel: "Idioma del sitio",
 		themeToggleLabel: "Cambiar tema claro u oscuro",
@@ -65,6 +67,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Legal",
 		privacyLink: "Privacy policy",
 		dataDeletionLink: "Data deletion request",
+		supportLink: "Support",
 		backToHome: "Back to home",
 		languageLabel: "Site language",
 		themeToggleLabel: "Toggle light or dark theme",
@@ -73,6 +76,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Legale",
 		privacyLink: "Informativa sulla privacy",
 		dataDeletionLink: "Richiesta di cancellazione dei dati",
+		supportLink: "Assistenza",
 		backToHome: "Torna alla home",
 		languageLabel: "Lingua del sito",
 		themeToggleLabel: "Cambia tema chiaro o scuro",
@@ -81,6 +85,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Legal",
 		privacyLink: "Política de privacidade",
 		dataDeletionLink: "Pedido de eliminação de dados",
+		supportLink: "Suporte",
 		backToHome: "Voltar ao início",
 		languageLabel: "Idioma do site",
 		themeToggleLabel: "Alternar tema claro ou escuro",
@@ -89,6 +94,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Legal",
 		privacyLink: "Política de privacitat",
 		dataDeletionLink: "Sol·licitud d'eliminació de dades",
+		supportLink: "Suport",
 		backToHome: "Tornar a l'inici",
 		languageLabel: "Idioma del lloc",
 		themeToggleLabel: "Canvia el tema clar o fosc",
@@ -97,6 +103,7 @@ export const sharedContent: Record<Locale, SharedContent> = {
 		footerNavAria: "Mentions légales",
 		privacyLink: "Politique de confidentialité",
 		dataDeletionLink: "Demande de suppression des données",
+		supportLink: "Assistance",
 		backToHome: "Retour à l'accueil",
 		languageLabel: "Langue du site",
 		themeToggleLabel: "Basculer entre thème clair et sombre",
@@ -794,6 +801,153 @@ export const dataDeletionPageContent: Record<Locale, LegalPageContent> = {
 <li>Ajoutez toute information complémentaire pouvant nous aider à vous identifier.</li>
 </ol>
 <p>Nous traiterons la suppression dans les meilleurs délais et nous vous contacterons pour vous la confirmer.</p>
+`,
+	},
+};
+
+export const supportPageContent: Record<Locale, LegalPageContent> = {
+	es: {
+		meta: {
+			title: 'Soporte | Canelita Games',
+			description: 'Ayuda y contacto para los juegos de Canelita Games.',
+		},
+		body: `
+<span class="section-kicker">Soporte</span>
+<h1>Soporte</h1>
+<p>¿Tienes un problema, una duda o una sugerencia sobre alguno de nuestros juegos? Escríbenos a <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> y te responderemos lo antes posible.</p>
+<p>Para ayudarte más rápido, incluye en tu email:</p>
+<ul>
+<li>El nombre del juego (por ejemplo, Zen Lexis).</li>
+<li>Tu dispositivo y la versión de iOS o Android.</li>
+<li>Qué ha pasado y, si puedes, una captura de pantalla.</li>
+</ul>
+<h2>Preguntas frecuentes</h2>
+<h3>He comprado Premium y no lo tengo</h3>
+<p>Abre Ajustes en el juego y pulsa «Restaurar compras», con la misma cuenta de Apple o Google con la que compraste.</p>
+<h3>¿Dónde se guarda mi progreso?</h3>
+<p>En tu dispositivo. Si desinstalas el juego, el progreso se pierde.</p>
+<h3>Quiero borrar mis datos</h3>
+<p>Sigue los pasos de la <a href="/solicitud-de-eliminacion-de-datos">solicitud de eliminación de datos</a>.</p>
+`,
+	},
+	en: {
+		meta: {
+			title: 'Support | Canelita Games',
+			description: 'Help and contact for Canelita Games titles.',
+		},
+		body: `
+<span class="section-kicker">Support</span>
+<h1>Support</h1>
+<p>Having a problem, a question or a suggestion about one of our games? Email us at <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> and we will get back to you as soon as possible.</p>
+<p>To help us help you faster, please include:</p>
+<ul>
+<li>The name of the game (for example, Zen Lexis).</li>
+<li>Your device and iOS or Android version.</li>
+<li>What happened and, if possible, a screenshot.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<h3>I bought Premium but I don't have it</h3>
+<p>Open Settings in the game and tap “Restore purchases”, using the same Apple or Google account you bought it with.</p>
+<h3>Where is my progress saved?</h3>
+<p>On your device. If you uninstall the game, your progress is lost.</p>
+<h3>I want my data deleted</h3>
+<p>Follow the steps on the <a href="/solicitud-de-eliminacion-de-datos">data deletion request</a> page.</p>
+`,
+	},
+	it: {
+		meta: {
+			title: 'Assistenza | Canelita Games',
+			description: 'Aiuto e contatti per i giochi di Canelita Games.',
+		},
+		body: `
+<span class="section-kicker">Assistenza</span>
+<h1>Assistenza</h1>
+<p>Hai un problema, una domanda o un suggerimento su uno dei nostri giochi? Scrivici a <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> e ti risponderemo il prima possibile.</p>
+<p>Per aiutarti più rapidamente, indica nella tua email:</p>
+<ul>
+<li>Il nome del gioco (ad esempio, Zen Lexis).</li>
+<li>Il tuo dispositivo e la versione di iOS o Android.</li>
+<li>Cosa è successo e, se puoi, uno screenshot.</li>
+</ul>
+<h2>Domande frequenti</h2>
+<h3>Ho acquistato Premium ma non ce l'ho</h3>
+<p>Apri Impostazioni nel gioco e tocca «Ripristina acquisti», con lo stesso account Apple o Google usato per l'acquisto.</p>
+<h3>Dove vengono salvati i miei progressi?</h3>
+<p>Sul tuo dispositivo. Se disinstalli il gioco, i progressi vanno persi.</p>
+<h3>Voglio cancellare i miei dati</h3>
+<p>Segui i passaggi della <a href="/solicitud-de-eliminacion-de-datos">richiesta di cancellazione dei dati</a>.</p>
+`,
+	},
+	pt: {
+		meta: {
+			title: 'Suporte | Canelita Games',
+			description: 'Ajuda e contacto para os jogos da Canelita Games.',
+		},
+		body: `
+<span class="section-kicker">Suporte</span>
+<h1>Suporte</h1>
+<p>Tens um problema, uma dúvida ou uma sugestão sobre algum dos nossos jogos? Escreve-nos para <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> e responderemos o mais depressa possível.</p>
+<p>Para te ajudarmos mais rapidamente, inclui no teu email:</p>
+<ul>
+<li>O nome do jogo (por exemplo, Zen Lexis).</li>
+<li>O teu dispositivo e a versão do iOS ou Android.</li>
+<li>O que aconteceu e, se possível, uma captura de ecrã.</li>
+</ul>
+<h2>Perguntas frequentes</h2>
+<h3>Comprei o Premium e não o tenho</h3>
+<p>Abre as Definições no jogo e toca em «Restaurar compras», com a mesma conta Apple ou Google com que compraste.</p>
+<h3>Onde é guardado o meu progresso?</h3>
+<p>No teu dispositivo. Se desinstalares o jogo, o progresso perde-se.</p>
+<h3>Quero apagar os meus dados</h3>
+<p>Segue os passos do <a href="/solicitud-de-eliminacion-de-datos">pedido de eliminação de dados</a>.</p>
+`,
+	},
+	ca: {
+		meta: {
+			title: 'Suport | Canelita Games',
+			description: 'Ajuda i contacte per als jocs de Canelita Games.',
+		},
+		body: `
+<span class="section-kicker">Suport</span>
+<h1>Suport</h1>
+<p>Tens un problema, un dubte o un suggeriment sobre algun dels nostres jocs? Escriu-nos a <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> i et respondrem tan aviat com puguem.</p>
+<p>Per ajudar-te més ràpid, inclou al teu correu:</p>
+<ul>
+<li>El nom del joc (per exemple, Zen Lexis).</li>
+<li>El teu dispositiu i la versió d'iOS o Android.</li>
+<li>Què ha passat i, si pots, una captura de pantalla.</li>
+</ul>
+<h2>Preguntes freqüents</h2>
+<h3>He comprat Premium i no el tinc</h3>
+<p>Obre Configuració al joc i toca «Restaurar compres», amb el mateix compte d'Apple o Google amb què vas comprar.</p>
+<h3>On es desa el meu progrés?</h3>
+<p>Al teu dispositiu. Si desinstal·les el joc, el progrés es perd.</p>
+<h3>Vull esborrar les meves dades</h3>
+<p>Segueix els passos de la <a href="/solicitud-de-eliminacion-de-datos">sol·licitud d'eliminació de dades</a>.</p>
+`,
+	},
+	fr: {
+		meta: {
+			title: 'Assistance | Canelita Games',
+			description: 'Aide et contact pour les jeux Canelita Games.',
+		},
+		body: `
+<span class="section-kicker">Assistance</span>
+<h1>Assistance</h1>
+<p>Un problème, une question ou une suggestion à propos de l'un de nos jeux ? Écrivez-nous à <a href="mailto:canelitagames@gmail.com">canelitagames@gmail.com</a> et nous vous répondrons dès que possible.</p>
+<p>Pour vous aider plus vite, indiquez dans votre e-mail :</p>
+<ul>
+<li>Le nom du jeu (par exemple, Zen Lexis).</li>
+<li>Votre appareil et la version d'iOS ou d'Android.</li>
+<li>Ce qui s'est passé et, si possible, une capture d'écran.</li>
+</ul>
+<h2>Questions fréquentes</h2>
+<h3>J'ai acheté Premium mais je ne l'ai pas</h3>
+<p>Ouvrez Réglages dans le jeu et touchez « Restaurer les achats », avec le même compte Apple ou Google que lors de l'achat.</p>
+<h3>Où est enregistrée ma progression ?</h3>
+<p>Sur votre appareil. Si vous désinstallez le jeu, la progression est perdue.</p>
+<h3>Je veux supprimer mes données</h3>
+<p>Suivez les étapes de la <a href="/solicitud-de-eliminacion-de-datos">demande de suppression des données</a>.</p>
 `,
 	},
 };
