@@ -1,0 +1,15 @@
+---
+import BrandMark from "./BrandMark.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { brand } from "../data/brand";
+---
+
+<header class="site-header">
+	<div class="container site-header-inner">
+		<a class="brand-link" href="/">
+			<BrandMark size={52} decorative />
+			<span class="brand-name">{brand.name}</span>
+		</a>
+		<LanguageSwitcher />
+	</div>
+</header>

@@ -22,19 +22,16 @@ const runtime = {
 	pathname="/soporte"
 	localizedMeta={metaMap}
 >
-	<div class="page-shell">
-		<div class="noise"></div>
-		<main class="legal-page">
+		<main class="legal-page" id="contenido">
 			<div class="container">
-				<article class="legal-card">
-					<a class="back-link" href="/" data-back-link>{sharedContent[locale].backToHome}</a>
+				<article class="legal">
+					<a class="btn btn-small back-link" href="/" data-back-link>{sharedContent[locale].backToHome}</a>
 					<DataDeletionContent html={pageCopy.body} />
 				</article>
 			</div>
 		</main>
 
 		<Footer />
-	</div>
 	<script type="application/json" id="support-i18n" set:html={JSON.stringify(runtime)}></script>
 	<script is:inline>
 		(() => {

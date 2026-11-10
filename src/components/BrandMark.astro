@@ -1,0 +1,25 @@
+---
+/**
+ * Logo slot. Every place that shows the studio logo renders this component,
+ * so swapping the logo is a one-line change in `src/data/brand.ts`.
+ */
+import { brand } from "../data/brand";
+
+interface Props {
+	size?: number;
+	class?: string;
+	decorative?: boolean;
+}
+
+const { size = 56, class: className = "", decorative = false } = Astro.props;
+---
+
+<span class:list={["brand-mark", className]} style={`--brand-mark-size: ${size}px`}>
+	<img
+		src={brand.logo.mark}
+		alt={decorative ? "" : brand.logo.alt}
+		width={size}
+		height={size}
+		decoding="async"
+	/>
+</span>
