@@ -12,7 +12,6 @@ export interface HomeContent {
 		description: string;
 		primaryCta: string;
 		secondaryCta: string;
-		padHint: string;
 	};
 	section: {
 		title: string;
@@ -114,7 +113,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Elige un reto rápido, un puzzle tranquilo o un juego de palabras. Son gratis, se entienden en segundos y están listos en Google Play y App Store.",
 			primaryCta: "Ver juegos",
 			secondaryCta: "Perfil de Google Play",
-			padHint: "Cada botón es un juego. Pulsa uno.",
 		},
 		section: {
 			title: "Elige tu próximo juego.",
@@ -143,7 +141,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Pick a quick challenge, a quiet puzzle or a word game. They are free, easy to start and ready on Google Play and the App Store.",
 			primaryCta: "See games",
 			secondaryCta: "Google Play profile",
-			padHint: "Each button is a game. Press one.",
 		},
 		section: {
 			title: "Pick your next game.",
@@ -172,7 +169,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Scegli una sfida rapida, un puzzle tranquillo o un gioco di parole. Sono gratis, immediati e disponibili su Google Play e App Store.",
 			primaryCta: "Vedi i giochi",
 			secondaryCta: "Profilo Google Play",
-			padHint: "Ogni pulsante è un gioco. Premine uno.",
 		},
 		section: {
 			title: "Scegli il prossimo gioco.",
@@ -201,7 +197,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Escolhe um desafio rápido, um puzzle calmo ou um jogo de palavras. São grátis, fáceis de começar e estão no Google Play e na App Store.",
 			primaryCta: "Ver jogos",
 			secondaryCta: "Perfil do Google Play",
-			padHint: "Cada botão é um jogo. Carrega num.",
 		},
 		section: {
 			title: "Escolhe o próximo jogo.",
@@ -230,7 +225,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Tria un repte ràpid, un puzle tranquil o un joc de paraules. Són gratis, fàcils de començar i disponibles a Google Play i a l'App Store.",
 			primaryCta: "Veure jocs",
 			secondaryCta: "Perfil de Google Play",
-			padHint: "Cada botó és un joc. Prem-ne un.",
 		},
 		section: {
 			title: "Tria el pròxim joc.",
@@ -259,7 +253,6 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Choisissez un défi rapide, un puzzle calme ou un jeu de mots. Ils sont gratuits, faciles à prendre en main et disponibles sur Google Play et l'App Store.",
 			primaryCta: "Voir les jeux",
 			secondaryCta: "Profil Google Play",
-			padHint: "Chaque bouton est un jeu. Appuyez !",
 		},
 		section: {
 			title: "Choisissez votre prochain jeu.",

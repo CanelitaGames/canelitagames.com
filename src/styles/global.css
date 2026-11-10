@@ -20,6 +20,7 @@
 	--seed-sun: #ffc43d; /* face buttons */
 	--seed-sky: #8fcbff;
 	--seed-pink: #ffa8bf;
+	--seed-grill: #ffa45c; /* Kebab To Go */
 	--cream: #fff6ec;
 
 	/* Semantic */
@@ -358,26 +359,24 @@ p {
 /* ---------- 5. Hero ---------- */
 
 .hero {
-	padding-block: clamp(24px, 5vw, 64px) clamp(56px, 8vw, 104px);
-	overflow: hidden;
+	padding-block: clamp(24px, 5vw, 64px) clamp(56px, 8vw, 96px);
 }
 
-.hero-grid {
+.hero-top {
 	display: grid;
-	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-	align-items: center;
-	gap: clamp(32px, 5vw, 72px);
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+	align-items: end;
+	gap: 24px clamp(32px, 5vw, 72px);
 }
 
 .hero-title {
-	font-size: clamp(3rem, 7.4vw, 6.4rem);
+	font-size: clamp(3rem, 7.4vw, 6.6rem);
 	line-height: 0.95;
-	max-width: 11ch;
+	max-width: 12ch;
 	text-wrap: balance;
 }
 
 .hero-description {
-	margin-top: 24px;
 	max-width: 46ch;
 	font-size: 1.2rem;
 	color: var(--fg-muted);
@@ -387,138 +386,89 @@ p {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 16px;
-	margin-top: 32px;
+	margin-top: 28px;
 }
 
-/* The pomegranate pad: the four face buttons of the logo's controller,
-   one per game. */
-.pad {
-	position: relative;
-	margin: 0;
-	width: min(100%, 460px);
-	justify-self: center;
-	aspect-ratio: 400 / 470;
+/* The shelf: every game, on a cinnamon plank, one tap from its section. */
+.shelf {
+	margin-top: clamp(48px, 7vw, 88px);
 }
 
-.pad-body {
-	position: absolute;
-	inset: 0 0 auto 0;
-	width: 100%;
-	height: auto;
-	overflow: visible;
-}
-
-.pad-fruit,
-.pad-crown {
-	fill: var(--granada);
-	stroke: var(--line);
-	stroke-width: 7;
-	stroke-linejoin: round;
-}
-
-.pad-fruit {
-	filter: drop-shadow(10px 10px 0 var(--shadow));
-}
-
-.pad-shine {
-	fill: none;
-	stroke: #ffffff;
-	stroke-opacity: 0.55;
-	stroke-width: 12;
-	stroke-linecap: round;
-}
-
-.pad-buttons {
-	position: absolute;
-	left: 50%;
-	top: calc(236 / 470 * 100%);
-	width: 79%;
-	aspect-ratio: 1;
-	transform: translate(-50%, -50%);
+.shelf ul {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	align-items: end;
+	gap: clamp(12px, 2.4vw, 32px);
+	margin: 0;
+	padding: 0 clamp(12px, 2vw, 28px);
+	list-style: none;
 }
 
-.pad-button {
-	--size: 100%;
-	position: relative;
+.shelf::after {
+	content: "";
+	display: block;
+	height: 22px;
+	margin-top: 18px;
+	background: var(--canela);
+	border: var(--stroke-heavy) solid var(--line);
+	border-radius: 11px;
+	box-shadow: 0 8px 0 var(--shadow);
+}
+
+.shelf li:nth-child(odd) {
+	--tilt: -4deg;
+}
+
+.shelf li:nth-child(even) {
+	--tilt: 3deg;
+}
+
+.shelf-item {
 	display: grid;
 	justify-items: center;
-	align-content: center;
 	gap: 6px;
-	color: var(--plum);
+	color: var(--fg);
 	text-decoration: none;
-	border-radius: var(--r-icon);
+	text-align: center;
+	border-radius: var(--r-button);
 }
 
-.pad-button[data-pos="top"] {
-	grid-area: 1 / 2;
-}
-
-.pad-button[data-pos="left"] {
-	grid-area: 2 / 1;
-}
-
-.pad-button[data-pos="right"] {
-	grid-area: 2 / 3;
-}
-
-.pad-button[data-pos="bottom"] {
-	grid-area: 3 / 2;
-}
-
-.pad-button img {
+.shelf-item img {
 	width: 100%;
+	height: auto;
 	aspect-ratio: 1;
 	object-fit: cover;
+	background: #ffffff;
 	border: var(--stroke-heavy) solid var(--plum);
 	border-radius: var(--r-icon);
-	background: #ffffff;
-	box-shadow: 0 6px 0 var(--plum);
+	box-shadow: 6px 6px 0 var(--shadow);
+	transform: rotate(var(--tilt));
 	transition:
-		transform 120ms ease,
-		box-shadow 120ms ease;
+		transform 140ms ease,
+		box-shadow 140ms ease;
+	margin-bottom: 10px;
 }
 
-.pad-button span {
-	position: absolute;
-	bottom: -14px;
-	padding: 3px 8px;
-	border: 2px solid var(--plum);
-	border-radius: 8px;
-	background: var(--cream);
+.shelf-item:hover img {
+	transform: rotate(0deg) translateY(-8px);
+	box-shadow: 8px 14px 0 var(--shadow);
+}
+
+.shelf-item:active img {
+	transform: rotate(0deg) translateY(2px);
+	box-shadow: 2px 2px 0 var(--shadow);
+}
+
+.shelf-name {
 	font-family: var(--font-display);
-	font-size: 0.8rem;
-	line-height: 1;
-	white-space: nowrap;
-	transition: transform 120ms ease;
+	font-size: clamp(1rem, 1.6vw, 1.35rem);
+	line-height: 1.05;
 }
 
-.pad-button:hover img {
-	transform: translateY(-3px) rotate(-3deg);
-	box-shadow: 0 9px 0 var(--plum);
-}
-
-.pad-button:active img {
-	transform: translateY(6px);
-	box-shadow: 0 0 0 var(--plum);
-}
-
-.pad-button:active span {
-	transform: translateY(6px);
-}
-
-.pad-hint {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	max-width: 15ch;
-	font-family: var(--font-display);
-	font-size: 1.05rem;
-	line-height: 1.1;
-	transform: rotate(-4deg);
-	color: var(--fg);
+.shelf-stores {
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var(--fg-muted);
 }
 
 /* ---------- 6. Ads ---------- */
@@ -579,6 +529,11 @@ p {
 .game[data-accent="mint"] {
 	--band: var(--seed-pink);
 	--tilt: 4deg;
+}
+
+.game[data-accent="grill"] {
+	--band: var(--seed-grill);
+	--tilt: -3deg;
 }
 
 .game-inner {
@@ -844,7 +799,7 @@ p {
 /* ---------- 10. Responsive ---------- */
 
 @media (max-width: 880px) {
-	.hero-grid,
+	.hero-top,
 	.games-heading,
 	.game-inner,
 	.game[data-flip] .game-inner {
@@ -853,10 +808,6 @@ p {
 
 	.hero-title {
 		max-width: 12ch;
-	}
-
-	.pad {
-		width: min(100%, 380px);
 	}
 
 	.game-art {
@@ -886,13 +837,15 @@ p {
 		justify-content: center;
 	}
 
-	.pad-button span {
-		font-size: 0.7rem;
-		padding: 2px 6px;
+	.shelf ul {
+		grid-template-columns: repeat(5, 132px);
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		padding-block: 12px 4px;
 	}
 
-	.pad-hint {
-		font-size: 0.9rem;
+	.shelf li {
+		scroll-snap-align: start;
 	}
 }
 

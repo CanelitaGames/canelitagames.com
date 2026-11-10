@@ -30,6 +30,7 @@ export const games: Game[] = [
 		accent: "prism",
 		available: true,
 		stores: {
+			android: "https://play.google.com/store/apps/details?id=com.canelitagames.prismaflow",
 			ios: "https://apps.apple.com/us/app/prisma-flow-color-puzzle/id6760553596",
 		},
 		translations: {
@@ -238,6 +239,60 @@ export const games: Game[] = [
 				description:
 					"Un puzzle détendu avec physique douce, combos et mode infini. Simple à comprendre, difficile à lâcher.",
 				highlights: ["Physique douce", "Mode infini", "Audio relaxant"],
+			},
+		},
+	},
+	{
+		id: "kebab-to-go",
+		title: "Kebab To Go: Idle Restaurant",
+		logo: "/logos/kebab-to-go.png",
+		accent: "grill",
+		available: true,
+		stores: {
+			android: "https://play.google.com/store/apps/details?id=com.canelitagames.kebabtogo",
+		},
+		translations: {
+			es: {
+				status: "Ya disponible",
+				tagline: "Monta tu kebab y conviértelo en una franquicia.",
+				description:
+					"Cocina kebabs y patatas, atiende la cola del mostrador y contrata personal para que el local funcione solo. Después, abre franquicias en nuevos barrios.",
+				highlights: ["Juego idle", "Franquicias", "Sin conexión"],
+			},
+			en: {
+				status: "Out now",
+				tagline: "Run a kebab shop and grow it into a franchise.",
+				description:
+					"Cook kebabs and fries, serve the queue at the counter and hire staff so the shop runs on its own. Then open franchises in new districts.",
+				highlights: ["Idle game", "Franchises", "Plays offline"],
+			},
+			it: {
+				status: "Disponibile ora",
+				tagline: "Gestisci un kebab e trasformalo in un franchising.",
+				description:
+					"Cucina kebab e patatine, servi la fila al bancone e assumi personale perché il locale vada da solo. Poi apri franchising in nuovi quartieri.",
+				highlights: ["Gioco idle", "Franchising", "Senza connessione"],
+			},
+			pt: {
+				status: "Já disponível",
+				tagline: "Gere uma casa de kebab e transforma-a num franchising.",
+				description:
+					"Cozinha kebabs e batatas fritas, atende a fila do balcão e contrata pessoal para a loja funcionar sozinha. Depois abre franchisings em novos bairros.",
+				highlights: ["Jogo idle", "Franchisings", "Sem ligação"],
+			},
+			ca: {
+				status: "Ja disponible",
+				tagline: "Munta el teu kebab i converteix-lo en una franquícia.",
+				description:
+					"Cuina kebabs i patates, atén la cua del taulell i contracta personal perquè el local funcioni sol. Després, obre franquícies en barris nous.",
+				highlights: ["Joc idle", "Franquícies", "Sense connexió"],
+			},
+			fr: {
+				status: "Déjà disponible",
+				tagline: "Gérez un kebab et faites-en une franchise.",
+				description:
+					"Préparez kebabs et frites, servez la file au comptoir et embauchez du personnel pour que la boutique tourne seule. Ouvrez ensuite des franchises dans de nouveaux quartiers.",
+				highlights: ["Jeu idle", "Franchises", "Hors ligne"],
 			},
 		},
 	},

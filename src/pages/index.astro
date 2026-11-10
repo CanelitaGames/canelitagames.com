@@ -12,7 +12,6 @@ import "../styles/global.css";
 const locale = defaultLocale;
 const homeCopy = homeContent[locale];
 const homeMeta = buildMetaMap(homeContent);
-const padPositions = ["top", "left", "right", "bottom"] as const;
 
 const structuredGames = games.map((game, index) => ({
 	"@type": "SoftwareApplication",
@@ -43,7 +42,7 @@ const structuredData = [
 		"@type": "Organization",
 		name: "Canelita Games",
 		url: "https://canelitagames.com",
-		logo: new URL(brand.logo.social, "https://canelitagames.com").toString(),
+		logo: new URL(brand.logo.markPng, "https://canelitagames.com").toString(),
 		sameAs: [
 			brand.googlePlayProfile,
 		],
@@ -78,35 +77,34 @@ const homeRuntime = {
 >
 	<main id="contenido">
 		<section class="hero" aria-labelledby="hero-title">
-			<div class="container hero-grid">
-				<div class="hero-copy">
-					<h1 id="hero-title" class="hero-title" data-home-title>{homeCopy.hero.title}</h1>
+			<div class="container hero-top">
+				<h1 id="hero-title" class="hero-title" data-home-title>{homeCopy.hero.title}</h1>
+				<div class="hero-side">
 					<p class="hero-description" data-home-description>{homeCopy.hero.description}</p>
 					<div class="hero-actions">
 						<a class="btn btn-primary" href="#juegos" data-home-primary-cta>{homeCopy.hero.primaryCta}</a>
 						<a class="btn" href={brand.googlePlayProfile} target="_blank" rel="noreferrer" data-home-secondary-cta>{homeCopy.hero.secondaryCta}</a>
 					</div>
 				</div>
-
-				<figure class="pad">
-					<svg class="pad-body" viewBox="0 0 400 420" aria-hidden="true">
-						<path class="pad-crown" d="M162 70 L150 22 L184 48 L200 10 L216 48 L250 22 L238 70 Z" />
-						<circle class="pad-fruit" cx="200" cy="236" r="172" />
-						<path class="pad-shine" d="M66 292 C 54 240, 62 190, 92 150" />
-					</svg>
-					<nav class="pad-buttons" aria-label={homeCopy.section.title} data-pad-nav>
-						{
-							games.slice(0, 4).map((game, index) => (
-								<a class="pad-button" href={`#${game.id}`} data-pos={padPositions[index]} data-accent={game.accent}>
-									<img src={game.logo} alt="" width="96" height="96" />
-									<span>{game.title}</span>
-								</a>
-							))
-						}
-					</nav>
-					<figcaption class="pad-hint" data-home-pad-hint>{homeCopy.hero.padHint}</figcaption>
-				</figure>
 			</div>
+
+			<nav class="container shelf" aria-label={homeCopy.section.title} data-shelf-nav>
+				<ul>
+					{
+						games.map((game) => (
+							<li data-accent={game.accent}>
+								<a class="shelf-item" href={`#${game.id}`}>
+									<img src={game.logo} alt="" width="200" height="200" />
+									<span class="shelf-name">{game.title.split(":")[0]}</span>
+									<span class="shelf-stores">
+										{[game.stores.android && "Google Play", game.stores.ios && "App Store"].filter(Boolean).join(" · ")}
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
 		</section>
 
 		<AdSenseUnit slot={import.meta.env.PUBLIC_GOOGLE_ADSENSE_SLOT_HOME_TOP} className="container top-ad" />
@@ -166,8 +164,7 @@ const homeRuntime = {
 				const description = document.querySelector("[data-home-description]");
 				const primaryCta = document.querySelector("[data-home-primary-cta]");
 				const secondaryCta = document.querySelector("[data-home-secondary-cta]");
-				const padHint = document.querySelector("[data-home-pad-hint]");
-				const padNav = document.querySelector("[data-pad-nav]");
+				const shelfNav = document.querySelector("[data-shelf-nav]");
 				const sectionTitle = document.querySelector("[data-home-section-title]");
 				const sectionDescription = document.querySelector("[data-home-section-description]");
 
@@ -175,8 +172,7 @@ const homeRuntime = {
 				if (description) description.textContent = copy.hero.description;
 				if (primaryCta) primaryCta.textContent = copy.hero.primaryCta;
 				if (secondaryCta) secondaryCta.textContent = copy.hero.secondaryCta;
-				if (padHint) padHint.textContent = copy.hero.padHint;
-				if (padNav) padNav.setAttribute("aria-label", copy.section.title);
+				if (shelfNav) shelfNav.setAttribute("aria-label", copy.section.title);
 				if (sectionTitle) sectionTitle.textContent = copy.section.title;
 				if (sectionDescription) sectionDescription.textContent = copy.section.description;
 
