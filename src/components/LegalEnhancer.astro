@@ -78,7 +78,7 @@
 			if (title) title.textContent = tocLabels[locale] ?? tocLabels.es;
 			list.replaceChildren(
 				...headings.map((heading) => {
-					heading.id = heading.id || slug(heading.textContent ?? "");
+					heading.id = `s-${slug(heading.textContent ?? "")}`;
 					const item = document.createElement("li");
 					const link = document.createElement("a");
 					link.href = `#${heading.id}`;
