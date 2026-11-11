@@ -26,7 +26,7 @@ export const games: Game[] = [
 	{
 		id: "prisma-flow",
 		title: "Prisma Flow",
-		logo: "/logos/prisma-flow.png",
+		logo: "/logos/games/prisma-flow.png",
 		accent: "prism",
 		available: true,
 		stores: {
@@ -81,7 +81,7 @@ export const games: Game[] = [
 	{
 		id: "zen-lexis",
 		title: "Zen Lexis",
-		logo: "/logos/zen-lexis.svg",
+		logo: "/logos/games/zen-lexis.png",
 		accent: "cyan",
 		available: true,
 		stores: {
@@ -136,7 +136,7 @@ export const games: Game[] = [
 	{
 		id: "touch-the-apple",
 		title: "Touch the Apple",
-		logo: "/logos/touch-the-apple.svg",
+		logo: "/logos/games/touch-the-apple.png",
 		accent: "sun",
 		available: true,
 		stores: {
@@ -190,7 +190,7 @@ export const games: Game[] = [
 	{
 		id: "essence-merge",
 		title: "Essence Merge",
-		logo: "/logos/essence-merge.svg",
+		logo: "/logos/games/essence-merge.png",
 		accent: "mint",
 		available: true,
 		stores: {
@@ -245,7 +245,7 @@ export const games: Game[] = [
 	{
 		id: "kebab-to-go",
 		title: "Kebab To Go: Idle Restaurant",
-		logo: "/logos/kebab-to-go.png",
+		logo: "/logos/games/kebab-to-go.png",
 		accent: "grill",
 		available: true,
 		stores: {
