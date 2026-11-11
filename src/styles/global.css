@@ -736,6 +736,143 @@ p {
 	font-weight: 700;
 }
 
+/* Two columns on wide screens: text plus a sticky index of sections. */
+.legal-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 72ch) minmax(200px, 280px);
+	justify-content: space-between;
+	align-items: start;
+	gap: 48px;
+}
+
+.legal-toc {
+	position: sticky;
+	top: 24px;
+	order: 2;
+	padding: 20px 22px;
+	background: var(--surface);
+	border: var(--stroke) solid var(--line);
+	border-radius: var(--r-sheet);
+	box-shadow: var(--lift) var(--lift) 0 var(--shadow);
+}
+
+.legal-toc[hidden] {
+	display: none;
+}
+
+.legal-layout:has(.legal-toc[hidden]) {
+	grid-template-columns: minmax(0, 72ch);
+}
+
+.legal-toc p {
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	margin-bottom: 10px;
+}
+
+.legal-toc ol {
+	margin: 0;
+	padding-left: 1.4em;
+	font-size: 0.95rem;
+	line-height: 1.35;
+}
+
+.legal-toc li + li {
+	margin-top: 8px;
+}
+
+.legal-toc li::marker {
+	color: var(--granada);
+	font-weight: 700;
+}
+
+.legal-toc a {
+	color: var(--fg);
+	text-decoration: none;
+}
+
+.legal-toc a:hover {
+	color: var(--link);
+	text-decoration: underline;
+}
+
+.legal h2 {
+	scroll-margin-top: 24px;
+}
+
+/* Numbered steps (data deletion request) */
+.legal ol {
+	list-style: none;
+	counter-reset: step;
+	padding-left: 0;
+	margin: 24px 0;
+}
+
+.legal ol li {
+	counter-increment: step;
+	position: relative;
+	padding: 10px 0 10px 56px;
+	min-height: 44px;
+}
+
+.legal ol li::before {
+	content: counter(step);
+	position: absolute;
+	left: 0;
+	top: 4px;
+	width: 38px;
+	height: 38px;
+	display: grid;
+	place-items: center;
+	background: var(--seed-sun);
+	color: var(--plum);
+	border: var(--stroke) solid var(--line);
+	border-radius: 50%;
+	box-shadow: 3px 3px 0 var(--shadow);
+	font-family: var(--font-display);
+	font-size: 1.1rem;
+}
+
+.legal ol li + li {
+	margin-top: 8px;
+}
+
+.legal a[href^="mailto:"] {
+	font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+	.legal-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.legal-toc {
+		position: static;
+		order: 0;
+		grid-row: 1;
+		margin-top: 0;
+	}
+
+	.legal-toc ol {
+		columns: 2;
+		column-gap: 28px;
+	}
+
+	.legal-toc li {
+		break-inside: avoid;
+	}
+
+	.legal {
+		grid-row: 2;
+	}
+}
+
+@media (max-width: 520px) {
+	.legal-toc ol {
+		columns: 1;
+	}
+}
+
 /* ---------- 9. Footer ---------- */
 
 .site-footer {

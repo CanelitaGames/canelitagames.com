@@ -328,7 +328,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Adoptamos medidas de seguridad razonables para proteger la información, aunque ningún método de transmisión por Internet o almacenamiento electrónico es completamente seguro.</p>
 <h2>5. Derechos del usuario</h2>
 <p>Si resides en el Espacio Económico Europeo, el Reino Unido o en una jurisdicción con legislación equivalente, puedes ejercer los derechos de acceso, rectificación, supresión, portabilidad, oposición y revocación del consentimiento, cuando resulten aplicables.</p>
-<p>Para ejercer cualquiera de estos derechos, puedes utilizar nuestra página de solicitud de eliminación de datos o escribirnos directamente.</p>
+<p>Para ejercer cualquiera de estos derechos, puedes utilizar nuestra <a href="/solicitud-de-eliminacion-de-datos">página de solicitud de eliminación de datos</a> o escribirnos directamente.</p>
 <h2>6. Eliminación de datos</h2>
 <p>Puedes solicitar la eliminación de los datos asociados a tu uso de nuestras aplicaciones. También puedes restablecer tu identificador publicitario desde los ajustes del dispositivo, desvincular Google Play Games desde la app correspondiente o desinstalar la aplicación para eliminar los datos almacenados localmente.</p>
 <p>Procesaremos las solicitudes de eliminación en un plazo máximo de 30 días.</p>
@@ -398,7 +398,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>We apply reasonable safeguards to protect information, although no method of transmission or storage is completely secure.</p>
 <h2>5. User rights</h2>
 <p>If you live in the European Economic Area, the United Kingdom or another jurisdiction with equivalent privacy law, you may have rights of access, rectification, deletion, portability, objection and withdrawal of consent where applicable.</p>
-<p>To exercise these rights, you can use our data deletion request page or contact us directly.</p>
+<p>To exercise these rights, you can use our <a href="/solicitud-de-eliminacion-de-datos">data deletion request page</a> or contact us directly.</p>
 <h2>6. Data deletion</h2>
 <p>You may request deletion of the data associated with your use of our applications. You may also reset your advertising identifier in your device settings, disconnect Google Play Games in the relevant app or uninstall the application to remove locally stored data.</p>
 <p>We will process deletion requests within a maximum period of 30 days.</p>
