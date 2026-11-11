@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer.astro";
+import LegalEnhancer from "../components/LegalEnhancer.astro";
 import PrivacyPolicyContent from "../components/PrivacyPolicyContent.astro";
 import { buildMetaMap, privacyPageContent, sharedContent } from "../i18n/content";
 import { defaultLocale } from "../i18n/config";
@@ -22,18 +23,21 @@ const runtime = {
 	pathname="/politica-de-privacidad"
 	localizedMeta={metaMap}
 >
-	<div class="page-shell">
-		<div class="noise"></div>
-		<main class="legal-page">
+		<main class="legal-page" id="contenido">
 			<div class="container">
-				<article class="legal-card">
-					<a class="back-link" href="/" data-back-link>{sharedContent[locale].backToHome}</a>
+				<a class="btn btn-small back-link" href="/" data-back-link>{sharedContent[locale].backToHome}</a>
+			</div>
+			<div class="container legal-layout">
+				<article class="legal">
 					<PrivacyPolicyContent html={pageCopy.body} />
 				</article>
+				<nav class="legal-toc" data-legal-toc hidden>
+					<p data-legal-toc-title>En esta página</p>
+					<ol></ol>
+				</nav>
 			</div>
 		</main>
 		<Footer />
-	</div>
 	<script type="application/json" id="privacy-i18n" set:html={JSON.stringify(runtime)}></script>
 	<script is:inline>
 		(() => {
@@ -59,4 +63,5 @@ const runtime = {
 			render(document.documentElement.dataset.locale ?? runtime.defaultLocale);
 		})();
 	</script>
+	<LegalEnhancer />
 </BaseLayout>

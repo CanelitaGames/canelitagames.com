@@ -8,22 +8,12 @@ export interface MetaContent {
 export interface HomeContent {
 	meta: MetaContent;
 	hero: {
-		badge: string;
-		kicker: string;
+		title: string;
 		description: string;
 		primaryCta: string;
 		secondaryCta: string;
-		panelKicker: string;
-		panelTitle: string;
-		panelDescription: string;
-		stats: {
-			games: string;
-			appStore: string;
-			languages: string;
-		};
 	};
 	section: {
-		kicker: string;
 		title: string;
 		description: string;
 	};
@@ -118,24 +108,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Explora los juegos móviles de Canelita Games: arcade de reflejos, puzzles zen, juegos de palabras y lógica cromática con enlaces directos a Google Play y App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Juegos móviles para abrir y jugar.",
+			title: "Juegos móviles para abrir y jugar.",
 			description:
 				"Elige un reto rápido, un puzzle tranquilo o un juego de palabras. Son gratis, se entienden en segundos y están listos en Google Play y App Store.",
 			primaryCta: "Ver juegos",
 			secondaryCta: "Perfil de Google Play",
-			panelKicker: "Elige tu partida",
-			panelTitle: "Cuatro juegos. Una pausa mejor.",
-			panelDescription:
-				"Toca, piensa, ordena colores o fusiona orbes. Abre tu tienda y empieza en menos de un minuto.",
-			stats: {
-				games: "juegos gratis",
-				appStore: "ya en App Store",
-				languages: "idiomas",
-			},
 		},
 		section: {
-			kicker: "Juega ahora",
 			title: "Elige tu próximo juego.",
 			description:
 				"Mira el resumen, elige plataforma y entra directamente en Google Play o App Store.",
@@ -157,24 +136,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Discover Canelita Games mobile titles: reflex arcades, zen puzzles, word games and chromatic logic with direct links to Google Play and the App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Mobile games you can open and play.",
+			title: "Mobile games you can open and play.",
 			description:
 				"Pick a quick challenge, a quiet puzzle or a word game. They are free, easy to start and ready on Google Play and the App Store.",
 			primaryCta: "See games",
 			secondaryCta: "Google Play profile",
-			panelKicker: "Pick your next game",
-			panelTitle: "Four games. A better break.",
-			panelDescription:
-				"Tap, think, sort colors or merge orbs. Open your store and start in under a minute.",
-			stats: {
-				games: "free games",
-				appStore: "on App Store",
-				languages: "languages",
-			},
 		},
 		section: {
-			kicker: "Play now",
 			title: "Pick your next game.",
 			description:
 				"Check the quick summary, choose a platform and jump straight to Google Play or the App Store.",
@@ -196,24 +164,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Scopri i giochi mobile di Canelita Games: arcade di riflessi, puzzle zen, word game e logica cromatica con link diretti a Google Play e App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Giochi mobile da aprire e giocare subito.",
+			title: "Giochi mobile da aprire e giocare subito.",
 			description:
 				"Scegli una sfida rapida, un puzzle tranquillo o un gioco di parole. Sono gratis, immediati e disponibili su Google Play e App Store.",
 			primaryCta: "Vedi i giochi",
 			secondaryCta: "Profilo Google Play",
-			panelKicker: "Scegli la prossima partita",
-			panelTitle: "Quattro giochi. Una pausa migliore.",
-			panelDescription:
-				"Tocca, pensa, ordina colori o fondi sfere. Apri lo store e inizi in meno di un minuto.",
-			stats: {
-				games: "giochi gratis",
-				appStore: "già su App Store",
-				languages: "lingue",
-			},
 		},
 		section: {
-			kicker: "Gioca ora",
 			title: "Scegli il prossimo gioco.",
 			description:
 				"Leggi il riassunto, scegli la piattaforma e vai direttamente su Google Play o App Store.",
@@ -235,24 +192,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Descobre os jogos mobile da Canelita Games: arcades de reflexos, puzzles zen, jogos de palavras e lógica cromática com ligações diretas para Google Play e App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Jogos mobile para abrir e jogar.",
+			title: "Jogos mobile para abrir e jogar.",
 			description:
 				"Escolhe um desafio rápido, um puzzle calmo ou um jogo de palavras. São grátis, fáceis de começar e estão no Google Play e na App Store.",
 			primaryCta: "Ver jogos",
 			secondaryCta: "Perfil do Google Play",
-			panelKicker: "Escolhe a próxima partida",
-			panelTitle: "Quatro jogos. Uma pausa melhor.",
-			panelDescription:
-				"Toca, pensa, ordena cores ou funde orbes. Abre a loja e começa em menos de um minuto.",
-			stats: {
-				games: "jogos grátis",
-				appStore: "já na App Store",
-				languages: "idiomas",
-			},
 		},
 		section: {
-			kicker: "Joga agora",
 			title: "Escolhe o próximo jogo.",
 			description:
 				"Vê o resumo, escolhe a plataforma e entra diretamente no Google Play ou na App Store.",
@@ -274,24 +220,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Descobreix els jocs mòbils de Canelita Games: arcade de reflexos, puzles zen, jocs de paraules i lògica cromàtica amb enllaços directes a Google Play i App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Jocs mòbils per obrir i jugar.",
+			title: "Jocs mòbils per obrir i jugar.",
 			description:
 				"Tria un repte ràpid, un puzle tranquil o un joc de paraules. Són gratis, fàcils de començar i disponibles a Google Play i a l'App Store.",
 			primaryCta: "Veure jocs",
 			secondaryCta: "Perfil de Google Play",
-			panelKicker: "Tria la pròxima partida",
-			panelTitle: "Quatre jocs. Una pausa millor.",
-			panelDescription:
-				"Toca, pensa, ordena colors o fusiona orbes. Obre la botiga i comença en menys d'un minut.",
-			stats: {
-				games: "jocs gratis",
-				appStore: "ja a l'App Store",
-				languages: "idiomes",
-			},
 		},
 		section: {
-			kicker: "Juga ara",
 			title: "Tria el pròxim joc.",
 			description:
 				"Mira el resum, tria plataforma i ves directament a Google Play o a l'App Store.",
@@ -313,24 +248,13 @@ export const homeContent: Record<Locale, HomeContent> = {
 				"Découvrez les jeux mobiles de Canelita Games : arcade de réflexes, puzzles zen, jeux de mots et logique chromatique avec des liens directs vers Google Play et l'App Store.",
 		},
 		hero: {
-			badge: "Canelita Games",
-			kicker: "Des jeux mobiles à lancer tout de suite.",
+			title: "Des jeux mobiles à lancer tout de suite.",
 			description:
 				"Choisissez un défi rapide, un puzzle calme ou un jeu de mots. Ils sont gratuits, faciles à prendre en main et disponibles sur Google Play et l'App Store.",
 			primaryCta: "Voir les jeux",
 			secondaryCta: "Profil Google Play",
-			panelKicker: "Choisissez votre partie",
-			panelTitle: "Quatre jeux. Une meilleure pause.",
-			panelDescription:
-				"Touchez, réfléchissez, rangez les couleurs ou fusionnez des orbes. Ouvrez la boutique et commencez en moins d'une minute.",
-			stats: {
-				games: "jeux gratuits",
-				appStore: "déjà sur l'App Store",
-				languages: "langues",
-			},
 		},
 		section: {
-			kicker: "Jouez maintenant",
 			title: "Choisissez votre prochain jeu.",
 			description:
 				"Lisez le résumé, choisissez la plateforme et passez directement à Google Play ou à l'App Store.",
@@ -404,7 +328,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Adoptamos medidas de seguridad razonables para proteger la información, aunque ningún método de transmisión por Internet o almacenamiento electrónico es completamente seguro.</p>
 <h2>5. Derechos del usuario</h2>
 <p>Si resides en el Espacio Económico Europeo, el Reino Unido o en una jurisdicción con legislación equivalente, puedes ejercer los derechos de acceso, rectificación, supresión, portabilidad, oposición y revocación del consentimiento, cuando resulten aplicables.</p>
-<p>Para ejercer cualquiera de estos derechos, puedes utilizar nuestra página de solicitud de eliminación de datos o escribirnos directamente.</p>
+<p>Para ejercer cualquiera de estos derechos, puedes utilizar nuestra <a href="/solicitud-de-eliminacion-de-datos">página de solicitud de eliminación de datos</a> o escribirnos directamente.</p>
 <h2>6. Eliminación de datos</h2>
 <p>Puedes solicitar la eliminación de los datos asociados a tu uso de nuestras aplicaciones. También puedes restablecer tu identificador publicitario desde los ajustes del dispositivo, desvincular Google Play Games desde la app correspondiente o desinstalar la aplicación para eliminar los datos almacenados localmente.</p>
 <p>Procesaremos las solicitudes de eliminación en un plazo máximo de 30 días.</p>
@@ -474,7 +398,7 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>We apply reasonable safeguards to protect information, although no method of transmission or storage is completely secure.</p>
 <h2>5. User rights</h2>
 <p>If you live in the European Economic Area, the United Kingdom or another jurisdiction with equivalent privacy law, you may have rights of access, rectification, deletion, portability, objection and withdrawal of consent where applicable.</p>
-<p>To exercise these rights, you can use our data deletion request page or contact us directly.</p>
+<p>To exercise these rights, you can use our <a href="/solicitud-de-eliminacion-de-datos">data deletion request page</a> or contact us directly.</p>
 <h2>6. Data deletion</h2>
 <p>You may request deletion of the data associated with your use of our applications. You may also reset your advertising identifier in your device settings, disconnect Google Play Games in the relevant app or uninstall the application to remove locally stored data.</p>
 <p>We will process deletion requests within a maximum period of 30 days.</p>

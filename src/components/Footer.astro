@@ -1,18 +1,28 @@
 ---
+import BrandMark from "./BrandMark.astro";
+import { brand } from "../data/brand";
 import { defaultLocale } from "../i18n/config";
 import { sharedContent } from "../i18n/content";
 
 const footerCopy = sharedContent[defaultLocale];
+const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
 	<div class="container footer-inner">
-		<p class="footer-brand">Canelita Games</p>
+		<a class="footer-brand" href="/">
+			<BrandMark size={64} decorative />
+			<span>{brand.name}</span>
+		</a>
 		<nav class="footer-nav" aria-label={footerCopy.footerNavAria} data-footer-nav>
+			<a href="/soporte" data-footer-support>{footerCopy.supportLink}</a>
 			<a href="/politica-de-privacidad" data-footer-privacy>{footerCopy.privacyLink}</a>
 			<a href="/solicitud-de-eliminacion-de-datos" data-footer-deletion>{footerCopy.dataDeletionLink}</a>
-			<a href="/soporte" data-footer-support>{footerCopy.supportLink}</a>
 		</nav>
+		<p class="footer-meta">
+			<a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
+			<span>© {year} {brand.name}</span>
+		</p>
 	</div>
 </footer>
 

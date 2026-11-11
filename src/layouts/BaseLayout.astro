@@ -1,5 +1,6 @@
 ---
-import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { brand } from "../data/brand";
 import {
 	defaultLocale,
 	ogLocaleByLocale,
@@ -23,7 +24,7 @@ const {
 	title,
 	description,
 	pathname = "/",
-	ogImage = "/logos/canelita-games-current.png",
+	ogImage = brand.logo.social,
 	noindex = false,
 	structuredData,
 	localizedMeta = {},
@@ -49,8 +50,8 @@ const localeBootConfig = {
 };
 const themeBootConfig = {
 	storageKey: "canelita-theme",
-	lightThemeColor: "#f7f1e8",
-	darkThemeColor: "#111318",
+	lightThemeColor: "#fff6ec",
+	darkThemeColor: "#1d0a1b",
 };
 ---
 
@@ -62,7 +63,7 @@ const themeBootConfig = {
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="robots" content={robots} />
-		<meta name="theme-color" content="#f7f1e8" />
+		<meta name="theme-color" content="#fff6ec" />
 		<meta property="og:locale" content={ogLocaleByLocale[defaultLocale]} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Canelita Games" />
@@ -77,7 +78,7 @@ const themeBootConfig = {
 		<meta name="twitter:image" content={socialImage.toString()} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lilita+One&display=swap" rel="stylesheet" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonical.toString()} />
 		<title>{title}</title>
@@ -227,7 +228,8 @@ const themeBootConfig = {
 		}
 	</head>
 	<body>
-		<LanguageSwitcher />
+		<a class="skip-link" href="#contenido">Saltar al contenido</a>
+		<SiteHeader />
 		<slot />
 	</body>
 </html>

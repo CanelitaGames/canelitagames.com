@@ -1,0 +1,102 @@
+---
+/**
+ * Progressive enhancement for the legal and support pages, re-run after every
+ * language change: turns plain e-mails and URLs into links and builds the
+ * "on this page" index from the h2 headings.
+ */
+---
+
+<script is:inline>
+	(() => {
+		const tocLabels = {
+			es: "En esta página",
+			en: "On this page",
+			it: "In questa pagina",
+			pt: "Nesta página",
+			ca: "En aquesta pàgina",
+			fr: "Sur cette page",
+		};
+		const linkPattern = /([\w.+-]+@[\w-]+\.[\w.]+|https?:\/\/[^\s<,;)]+)/g;
+
+		const linkify = (root) => {
+			const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+			const nodes = [];
+			while (walker.nextNode()) {
+				const node = walker.currentNode;
+				if (node.parentElement?.closest("a")) continue;
+				linkPattern.lastIndex = 0;
+				if (linkPattern.test(node.textContent ?? "")) nodes.push(node);
+			}
+			nodes.forEach((node) => {
+				const fragment = document.createDocumentFragment();
+				const text = node.textContent ?? "";
+				let last = 0;
+				text.replace(linkPattern, (match, _g, offset) => {
+					let value = match;
+					let trailing = "";
+					while (/[.,]$/.test(value)) {
+						trailing = value.slice(-1) + trailing;
+						value = value.slice(0, -1);
+					}
+					fragment.append(text.slice(last, offset));
+					const a = document.createElement("a");
+					const isMail = value.includes("@") && !value.startsWith("http");
+					a.href = isMail ? `mailto:${value}` : value;
+					a.textContent = value;
+					if (!isMail) {
+						a.target = "_blank";
+						a.rel = "noreferrer";
+					}
+					fragment.append(a, trailing);
+					last = offset + match.length;
+					return match;
+				});
+				fragment.append(text.slice(last));
+				node.replaceWith(fragment);
+			});
+		};
+
+		const slug = (value) =>
+			value
+				.toLowerCase()
+				.normalize("NFD")
+				.replace(/[̀-ͯ]/g, "")
+				.replace(/[^a-z0-9]+/g, "-")
+				.replace(/^-|-$/g, "");
+
+		const buildToc = (content, locale) => {
+			const toc = document.querySelector("[data-legal-toc]");
+			if (!toc) return;
+			const headings = [...content.querySelectorAll("h2")];
+			if (headings.length < 3) {
+				toc.hidden = true;
+				return;
+			}
+			toc.hidden = false;
+			const title = toc.querySelector("[data-legal-toc-title]");
+			const list = toc.querySelector("ol");
+			if (title) title.textContent = tocLabels[locale] ?? tocLabels.es;
+			list.replaceChildren(
+				...headings.map((heading) => {
+					heading.id = `s-${slug(heading.textContent ?? "")}`;
+					const item = document.createElement("li");
+					const link = document.createElement("a");
+					link.href = `#${heading.id}`;
+					link.textContent = (heading.textContent ?? "").replace(/^\d+\.\s*/, "");
+					item.append(link);
+					return item;
+				}),
+			);
+		};
+
+		const enhance = (locale) => {
+			const content = document.querySelector("[data-legal-content]");
+			if (!content) return;
+			linkify(content);
+			buildToc(content, locale);
+		};
+
+		window.addEventListener("canelita:localechange", (event) => enhance(event.detail.locale));
+		enhance(document.documentElement.dataset.locale ?? "es");
+	})();
+</script>
