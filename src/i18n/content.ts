@@ -377,6 +377,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Si decides iniciar sesión con Google Play Games, podremos tratar tu identificador de jugador, tu nombre de perfil público, las puntuaciones enviadas a las clasificaciones y los logros desbloqueados. Esta información se usa exclusivamente para las funciones sociales y competitivas del juego.</p>
 <h3>1.4. Compras dentro de la aplicación</h3>
 <p>Nuestros juegos pueden ofrecer compras dentro de la aplicación, como la eliminación de anuncios. Las transacciones se procesan íntegramente a través de Google Play Billing o la App Store. No almacenamos datos de pago; únicamente recibimos identificadores técnicos para verificar la compra.</p>
+<h3>1.5. Kebab To Go: analítica y diagnóstico</h3>
+<p>Kebab To Go pregunta una franja de edad (sin fecha de nacimiento) antes de activar cualquier servicio de terceros. Después usa Firebase Crashlytics para recibir informes de fallos (datos técnicos del dispositivo y del fallo, sin identificadores propios) y, solo si la franja es de 13 años o más, Firebase Analytics y Remote Config para medir el uso (progreso, compras y anuncios vistos dentro del juego) y ajustar límites de anuncios y ofertas sin volver a publicar el juego. Con menos de 13 años o si prefieres no indicar la edad, Analytics y Remote Config no se activan. En el Espacio Económico Europeo y el Reino Unido, Analytics solo se activa si aceptas el almacenamiento en el formulario de consentimiento. No se recoge el identificador de publicidad para analítica, no se usan Google Signals ni la personalización de anuncios, y no asignamos identificadores de usuario propios.</p>
 <h2>2. Uso de la información</h2>
 <p>La información recopilada se utiliza exclusivamente para:</p>
 <ul>
@@ -447,6 +449,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>If you choose to sign in with Google Play Games, we may process your player ID, public profile name, leaderboard scores and unlocked achievements. This information is used only for social and competitive features.</p>
 <h3>1.4. In-app purchases</h3>
 <p>Our games may offer in-app purchases such as ad removal. Transactions are processed entirely through Google Play Billing or the App Store. We do not store payment details; we only receive technical identifiers required to validate a purchase.</p>
+<h3>1.5. Kebab To Go: analytics and diagnostics</h3>
+<p>Kebab To Go asks for an age band (no date of birth) before any third-party service starts. It then uses Firebase Crashlytics for crash reports (technical device and crash data, no identifiers of our own) and, only for players aged 13 or over, Firebase Analytics and Remote Config to measure use (progress, purchases and ads watched in the game) and adjust ad and offer limits without a new release. Under 13, or if you prefer not to state your age, Analytics and Remote Config stay off. In the European Economic Area and the United Kingdom, Analytics starts only if you accept storage in the consent form. The advertising identifier is not collected for analytics, Google Signals and ad personalisation are not used, and we assign no user identifiers of our own.</p>
 <h2>2. How we use the information</h2>
 <p>Collected information is used solely to:</p>
 <ul>
@@ -515,6 +519,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Se scegli di accedere con Google Play Games, potremmo trattare il tuo ID giocatore, il nome del profilo pubblico, i punteggi inviati alle classifiche e gli obiettivi sbloccati. Questi dati sono usati solo per funzioni sociali e competitive.</p>
 <h3>1.4. Acquisti in-app</h3>
 <p>I nostri giochi possono offrire acquisti in-app, come la rimozione degli annunci. Le transazioni sono elaborate interamente tramite Google Play Billing o App Store. Non memorizziamo dati di pagamento.</p>
+<h3>1.5. Kebab To Go: analisi e diagnostica</h3>
+<p>Kebab To Go chiede una fascia d'età (senza data di nascita) prima di attivare qualsiasi servizio di terzi. Poi usa Firebase Crashlytics per i rapporti sugli arresti anomali (dati tecnici, senza identificatori nostri) e, solo dai 13 anni in su, Firebase Analytics e Remote Config per misurare l'uso e regolare i limiti di annunci e offerte. Sotto i 13 anni o senza indicare l'età, Analytics e Remote Config restano disattivati. Nello Spazio economico europeo e nel Regno Unito, Analytics si attiva solo con il tuo consenso. Nessun identificatore pubblicitario per l'analisi, niente Google Signals né personalizzazione degli annunci.</p>
 <h2>2. Utilizzo delle informazioni</h2>
 <p>Le informazioni raccolte vengono utilizzate esclusivamente per:</p>
 <ul>
@@ -563,6 +569,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Se decidires iniciar sessão com o Google Play Games, poderemos tratar o teu identificador de jogador, o nome público do perfil, as pontuações enviadas para classificações e as conquistas desbloqueadas. Estes dados são utilizados apenas para funcionalidades sociais e competitivas.</p>
 <h3>1.4. Compras na aplicação</h3>
 <p>Os nossos jogos podem oferecer compras na aplicação, como a remoção de anúncios. As transações são processadas integralmente através do Google Play Billing ou da App Store. Não armazenamos dados de pagamento.</p>
+<h3>1.5. Kebab To Go: análise e diagnóstico</h3>
+<p>Kebab To Go pergunta uma faixa etária (sem data de nascimento) antes de ativar qualquer serviço de terceiros. Depois usa o Firebase Crashlytics para relatórios de falhas (dados técnicos, sem identificadores próprios) e, só a partir dos 13 anos, o Firebase Analytics e o Remote Config para medir o uso e ajustar limites de anúncios e ofertas. Com menos de 13 anos ou sem indicar a idade, o Analytics e o Remote Config ficam desativados. No Espaço Económico Europeu e no Reino Unido, o Analytics só é ativado com o teu consentimento. Sem identificador de publicidade para análise, sem Google Signals nem personalização de anúncios.</p>
 <h2>2. Utilização da informação</h2>
 <p>A informação recolhida é utilizada apenas para:</p>
 <ul>
@@ -611,6 +619,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Si decideixes iniciar sessió amb Google Play Games, podem tractar el teu identificador de jugador, el nom públic del perfil, les puntuacions enviades a les classificacions i els assoliments desbloquejats. Aquesta informació s'utilitza només per a funcionalitats socials i competitives.</p>
 <h3>1.4. Compres dins de l'aplicació</h3>
 <p>Els nostres jocs poden oferir compres dins de l'aplicació, com ara l'eliminació d'anuncis. Les transaccions es processen íntegrament a través de Google Play Billing o de l'App Store. No emmagatzemem dades de pagament.</p>
+<h3>1.5. Kebab To Go: analítica i diagnòstic</h3>
+<p>Kebab To Go pregunta una franja d'edat (sense data de naixement) abans d'activar cap servei de tercers. Després usa Firebase Crashlytics per als informes d'errors (dades tècniques, sense identificadors propis) i, només a partir de 13 anys, Firebase Analytics i Remote Config per mesurar l'ús i ajustar els límits d'anuncis i ofertes. Amb menys de 13 anys o sense indicar l'edat, Analytics i Remote Config no s'activen. A l'Espai Econòmic Europeu i al Regne Unit, Analytics només s'activa amb el teu consentiment. Sense identificador de publicitat per a l'analítica, sense Google Signals ni personalització d'anuncis.</p>
 <h2>2. Ús de la informació</h2>
 <p>La informació recopilada s'utilitza exclusivament per a:</p>
 <ul>
@@ -659,6 +669,8 @@ export const privacyPageContent: Record<Locale, LegalPageContent> = {
 <p>Si vous choisissez de vous connecter avec Google Play Games, nous pouvons traiter votre identifiant joueur, votre nom de profil public, vos scores envoyés aux classements et les succès débloqués. Ces données servent uniquement aux fonctionnalités sociales et compétitives.</p>
 <h3>1.4. Achats intégrés</h3>
 <p>Nos jeux peuvent proposer des achats intégrés, comme la suppression des annonces. Les transactions sont traitées intégralement via Google Play Billing ou l'App Store. Nous ne stockons pas de données de paiement.</p>
+<h3>1.5. Kebab To Go : analyse et diagnostic</h3>
+<p>Kebab To Go demande une tranche d'âge (sans date de naissance) avant d'activer tout service tiers. Il utilise ensuite Firebase Crashlytics pour les rapports de plantage (données techniques, sans identifiant propre) et, uniquement à partir de 13 ans, Firebase Analytics et Remote Config pour mesurer l'utilisation et ajuster les limites de publicités et d'offres. En dessous de 13 ans ou sans âge indiqué, Analytics et Remote Config restent désactivés. Dans l'Espace économique européen et au Royaume-Uni, Analytics ne s'active qu'avec ton consentement. Pas d'identifiant publicitaire pour l'analyse, ni Google Signals ni personnalisation des annonces.</p>
 <h2>2. Utilisation des informations</h2>
 <p>Les informations collectées sont utilisées uniquement pour :</p>
 <ul>
